@@ -1,0 +1,52 @@
+﻿@model SMSSettingsModel
+@{
+    //page title
+    ViewBag.Title = T("Admin.Configuration.Settings.SMS").Text;
+}
+@using (Html.BeginForm())
+{
+    <div class="section-header">
+        <div class="title">
+            <img src="@Url.Content("~/Administration/Content/images/ico-configuration.png")" alt="" />
+            @T("Admin.Configuration.Settings.SMS")
+        </div>
+        <div class="options">
+            <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+        </div>
+    </div>
+    
+    @Html.Action("StoreScopeConfiguration", "Setting")
+    @Html.ValidationSummary(false)
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.From_OverrideForStore, model => model.From, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.From):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.From)
+                @Html.ValidationMessageFor(model => model.From)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.CountryCode_OverrideForStore, model => model.CountryCode, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.CountryCode):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.CountryCode)
+                @Html.ValidationMessageFor(model => model.CountryCode)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.MessageTemplate_OverrideForStore, model => model.MessageTemplate, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.MessageTemplate):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.MessageTemplate)
+                @Html.ValidationMessageFor(model => model.MessageTemplate)
+            </td>
+        </tr>
+    </table>
+}

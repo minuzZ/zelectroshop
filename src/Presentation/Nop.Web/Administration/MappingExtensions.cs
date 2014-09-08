@@ -38,6 +38,7 @@ using Nop.Core.Domain.News;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Polls;
 using Nop.Core.Domain.Shipping;
+using Nop.Core.Domain.SMS;
 using Nop.Core.Domain.Stores;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Topics;
@@ -815,6 +816,19 @@ namespace Nop.Admin
             return Mapper.Map<VendorSettingsModel, VendorSettings>(model);
         }
         public static VendorSettings ToEntity(this VendorSettingsModel model, VendorSettings destination)
+        {
+            return Mapper.Map(model, destination);
+        }
+
+        public static SMSSettingsModel ToModel(this SMSSettings entity)
+        {
+            return Mapper.Map<SMSSettings, SMSSettingsModel>(entity);
+        }
+        public static SMSSettings ToEntity(this SMSSettingsModel model)
+        {
+            return Mapper.Map<SMSSettingsModel, SMSSettings>(model);
+        }
+        public static SMSSettings ToEntity(this SMSSettingsModel model, SMSSettings destination)
         {
             return Mapper.Map(model, destination);
         }
