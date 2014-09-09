@@ -21,5 +21,15 @@ namespace Nop.Core.Domain.SMS
         /// Gets or sets a message text template
         /// </summary>
         public string MessageTemplate { get; set; }
+
+        /// <summary>
+        /// Gets or sets a service user id
+        /// </summary>
+        public string ServiceId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a service user key
+        /// </summary>
+        public string ServiceKey { get; set; }
     }
 }

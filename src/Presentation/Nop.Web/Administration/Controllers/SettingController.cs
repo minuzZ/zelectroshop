@@ -297,6 +297,8 @@ namespace Nop.Admin.Controllers
                 model.CountryCode_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.CountryCode, storeScope);
                 model.From_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.From, storeScope);
                 model.MessageTemplate_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.MessageTemplate, storeScope);
+                model.ServiceId_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.ServiceId, storeScope);
+                model.ServiceKey_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.ServiceKey, storeScope);
             }
 
             return View(model);
@@ -330,6 +332,16 @@ namespace Nop.Admin.Controllers
                 _settingService.SaveSetting(smsSettings, x => x.MessageTemplate, storeScope, false);
             else if (storeScope > 0)
                 _settingService.DeleteSetting(smsSettings, x => x.MessageTemplate, storeScope);
+
+            if (model.ServiceId_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.ServiceId, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.ServiceId, storeScope);
+
+            if (model.ServiceKey_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.ServiceKey, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.ServiceKey, storeScope);
 
             //now clear settings cache
             _settingService.ClearCache();

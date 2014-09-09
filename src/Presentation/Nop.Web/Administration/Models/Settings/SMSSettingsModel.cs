@@ -18,5 +18,13 @@ namespace Nop.Admin.Models.Settings
         [NopResourceDisplayName("Admin.Configuration.Settings.SMS.MessageTemplate")]
         public string MessageTemplate { get; set; }
         public bool MessageTemplate_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Admin.Configuration.Settings.SMS.ServiceId")]
+        public string ServiceId { get; set; }
+        public bool ServiceId_OverrideForStore { get; set; }
+
+        [NopResourceDisplayName("Admin.Configuration.Settings.SMS.ServiceKey")]
+        public string ServiceKey { get; set; }
+        public bool ServiceKey_OverrideForStore { get; set; }
     }
 }
