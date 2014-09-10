@@ -652,6 +652,12 @@ namespace Nop.Admin.Infrastructure
                 .ForMember(dest => dest.DefaultVendorPageSizeOptions, mo => mo.Ignore());
             Mapper.CreateMap<SMSSettings, SMSSettingsModel>()
                 .ForMember(dest => dest.ActiveStoreScopeConfiguration, mo => mo.Ignore())
+                .ForMember(dest => dest.CountryCode_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.From_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.MessageTemplate_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.NumberLength_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.ServiceId_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.ServiceKey_OverrideForStore, mo => mo.Ignore())
                 .ForMember(dest => dest.CustomProperties, mo => mo.Ignore());
             Mapper.CreateMap<SMSSettingsModel, SMSSettings>();
             Mapper.CreateMap<ShippingSettings, ShippingSettingsModel>()

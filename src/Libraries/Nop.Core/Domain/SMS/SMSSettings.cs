@@ -18,6 +18,11 @@ namespace Nop.Core.Domain.SMS
         public string CountryCode { get; set; }
 
         /// <summary>
+        /// Gets or sets number length without country code
+        /// </summary>
+        public int NumberLength { get; set; }
+
+        /// <summary>
         /// Gets or sets a message text template
         /// </summary>
         public string MessageTemplate { get; set; }

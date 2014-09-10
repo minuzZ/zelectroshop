@@ -15,6 +15,10 @@ namespace Nop.Admin.Models.Settings
         public string CountryCode { get; set; }
         public bool CountryCode_OverrideForStore { get; set; }
 
+        [NopResourceDisplayName("Admin.Configuration.Settings.SMS.NumberLength")]
+        public int NumberLength { get; set; }
+        public bool NumberLength_OverrideForStore { get; set; }
+
         [NopResourceDisplayName("Admin.Configuration.Settings.SMS.MessageTemplate")]
         public string MessageTemplate { get; set; }
         public bool MessageTemplate_OverrideForStore { get; set; }
