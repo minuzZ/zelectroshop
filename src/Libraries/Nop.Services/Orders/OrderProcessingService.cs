@@ -1769,7 +1769,7 @@ namespace Nop.Services.Orders
                     DisplayToCustomer = false,
                     CreatedOnUtc = DateTime.UtcNow
                 });
-                orderService.UpdateOrder(order);
+                _orderService.UpdateOrder(order);
             }
 
             //event

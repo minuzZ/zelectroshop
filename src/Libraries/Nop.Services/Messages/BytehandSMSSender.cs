@@ -4,8 +4,6 @@ using Nop.Core.Domain.SMS;
 
 namespace Nop.Services.Messages
 {
-    //TODO:
-    //Temporary ISMSSender realization. Later hardcoded values should be moved to settings.
     public class BytehandSMSSender : ISMSSender
     {
         private readonly SMSSettings _smsSettings;
@@ -35,13 +33,12 @@ namespace Nop.Services.Messages
             }
         }
 
-        //TODO:
-        //Remove hardcoded values
         private string makeBytehandGetRequestURL(string bytehandId, string bytehandKey, 
             string number, string from, string text)
         {
-            return "http://bytehand.com:3800/send?id=" + bytehandId + "&key=" + bytehandKey + "&to=" + 
-                Uri.EscapeUriString(number) + "&from=" + Uri.EscapeUriString(from) + "&text=" + Uri.EscapeUriString(text);
+            return String.Format("http://bytehand.com:3800/send?id={0}&key={1}&to={2}&from={3}&text={4}",
+                bytehandId, bytehandKey, Uri.EscapeUriString(number), 
+                Uri.EscapeUriString(from), Uri.EscapeUriString(text));
         }
     }
 }
