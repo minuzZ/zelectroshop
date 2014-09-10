@@ -111,6 +111,7 @@
     <Compile Include="Helpers\DateTimeHelperTests.cs" />
     <Compile Include="Localization\LanguageServiceTests.cs" />
     <Compile Include="Logging\CustomerActivityServiceTests.cs" />
+    <Compile Include="Messages\PhoneNumberFormatterTest.cs" />
     <Compile Include="Messages\TokenizerTests.cs" />
     <Compile Include="Messages\NewsLetterSubscriptionServiceTests.cs" />
     <Compile Include="Orders\CheckoutAttributeParserAndFormatterTests.cs" />

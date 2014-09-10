@@ -220,6 +220,8 @@ namespace Nop.Web.Framework
             builder.RegisterType<MessageTokenProvider>().As<IMessageTokenProvider>().InstancePerLifetimeScope();
             builder.RegisterType<Tokenizer>().As<ITokenizer>().InstancePerLifetimeScope();
             builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerLifetimeScope();
+            builder.RegisterType<BytehandSMSSender>().As<ISMSSender>().InstancePerLifetimeScope();
+            builder.RegisterType<PhoneNumberFormatter>().As<IPhoneNumberFormatter>().InstancePerLifetimeScope();
 
             builder.RegisterType<CheckoutAttributeFormatter>().As<ICheckoutAttributeFormatter>().InstancePerLifetimeScope();
             builder.RegisterType<CheckoutAttributeParser>().As<ICheckoutAttributeParser>().InstancePerLifetimeScope();

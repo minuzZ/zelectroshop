@@ -136,6 +136,13 @@ namespace Nop.Services.Messages
         /// <param name="languageId">Message language identifier</param>
         /// <returns>Queued email identifier</returns>
         int SendRecurringPaymentCancelledStoreOwnerNotification(RecurringPayment recurringPayment, int languageId);
+
+        /// <summary>
+        /// Sends an SMS notification when order is shipped.
+        /// Configuration is obtained from Configuration->Settings->SMS
+        /// </summary>
+        /// <param name="shipment"></param>
+        void SendOrderShippedSMSNotification(Order order, Shipment ship);
         
         #endregion
 
