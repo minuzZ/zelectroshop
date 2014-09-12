@@ -39,6 +39,8 @@ namespace Nop.Web.Models.Catalog
             public bool DisableBuyButton { get; set; }
             public bool DisableWishlistButton { get; set; }
 
+            public int StockQuantity { get; set; }
+
             public bool AvailableForPreOrder { get; set; }
             public DateTime? PreOrderAvailabilityStartDateTimeUtc { get; set; }
 

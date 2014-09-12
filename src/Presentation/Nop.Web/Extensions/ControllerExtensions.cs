@@ -199,6 +199,8 @@ namespace Nop.Web.Extensions
                                     priceModel.PreOrderAvailabilityStartDateTimeUtc = product.PreOrderAvailabilityStartDateTimeUtc;
                                 }
 
+                                priceModel.StockQuantity = product.StockQuantity;
+
                                 //prices
                                 if (permissionService.Authorize(StandardPermissionProvider.DisplayPrices))
                                 {

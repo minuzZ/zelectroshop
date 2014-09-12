@@ -129,6 +129,7 @@ namespace Nop.Web.Models.Catalog
             public bool DisableBuyButton { get; set; }
             public bool DisableWishlistButton { get; set; }
             public List<SelectListItem> AllowedQuantities { get; set; }
+            public int StockQuantity { get; set; }
 
             //pre-order
             public bool AvailableForPreOrder { get; set; }

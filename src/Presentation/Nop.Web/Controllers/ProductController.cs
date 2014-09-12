@@ -492,6 +492,8 @@ namespace Nop.Web.Controllers
                 model.AddToCart.DisableBuyButton = true;
                 model.AddToCart.DisableWishlistButton = true;
             }
+            model.AddToCart.StockQuantity = product.StockQuantity;
+
             //pre-order
             if (product.AvailableForPreOrder)
             {
