@@ -1761,6 +1761,15 @@ namespace Nop.Services.Orders
                     });
                     _orderService.UpdateOrder(order);
                 }
+
+                _workflowMessageService.SendOrderShippedSMSNotification(order, shipment);
+                order.OrderNotes.Add(new OrderNote()
+                {
+                    Note = string.Format("SMS was sent.", queuedEmailId),
+                    DisplayToCustomer = false,
+                    CreatedOnUtc = DateTime.UtcNow
+                });
+                _orderService.UpdateOrder(order);
             }
 
             //event

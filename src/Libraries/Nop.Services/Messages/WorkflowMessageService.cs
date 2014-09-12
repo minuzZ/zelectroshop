@@ -12,6 +12,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.Stores;
 using Nop.Core.Domain.Vendors;
+using Nop.Core.Domain.SMS;
 using Nop.Services.Customers;
 using Nop.Services.Events;
 using Nop.Services.Localization;
@@ -33,6 +34,8 @@ namespace Nop.Services.Messages
         private readonly IStoreContext _storeContext;
         private readonly EmailAccountSettings _emailAccountSettings;
         private readonly IEventPublisher _eventPublisher;
+        private readonly ISMSSender _smsSender;
+        private readonly SMSSettings _smsSettings;
 
         #endregion
 
@@ -47,7 +50,9 @@ namespace Nop.Services.Messages
             IStoreService storeService,
             IStoreContext storeContext,
             EmailAccountSettings emailAccountSettings,
-            IEventPublisher eventPublisher)
+            IEventPublisher eventPublisher,
+            ISMSSender smsSender,
+            SMSSettings smsSettings)
         {
             this._messageTemplateService = messageTemplateService;
             this._queuedEmailService = queuedEmailService;
@@ -59,6 +64,8 @@ namespace Nop.Services.Messages
             this._storeContext = storeContext;
             this._emailAccountSettings = emailAccountSettings;
             this._eventPublisher = eventPublisher;
+            this._smsSender = smsSender;
+            this._smsSettings = smsSettings;
         }
 
         #endregion
@@ -704,6 +711,17 @@ namespace Nop.Services.Messages
             return SendNotification(messageTemplate, emailAccount,
                 languageId, tokens,
                 toEmail, toName);
+        }
+
+        /// <summary>
+        /// Sends an SMS notification when order is shipped.
+        /// Configuration is obtained from Configuration->Settings->SMS
+        /// </summary>
+        /// <param name="shipment"></param>
+        public virtual void SendOrderShippedSMSNotification(Order order, Shipment ship)
+        {
+            string text = String.Format(_smsSettings.MessageTemplate, ship.TrackingNumber);
+            _smsSender.SendSMS(_smsSettings.From, order.ShippingAddress.PhoneNumber, text);
         }
 
         #endregion

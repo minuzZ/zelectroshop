@@ -20,6 +20,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Seo;
 using Nop.Core.Domain.Shipping;
+using Nop.Core.Domain.SMS;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Vendors;
 using Nop.Services.Common;
@@ -281,7 +282,82 @@ namespace Nop.Admin.Controllers
             return RedirectToAction("Vendor");
         }
 
+        public ActionResult SMS()
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageSettings))
+                return AccessDeniedView();
 
+            //load settings for a chosen store scope
+            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var smsSettings = _settingService.LoadSetting<SMSSettings>(storeScope);
+            var model = smsSettings.ToModel();
+            model.ActiveStoreScopeConfiguration = storeScope;
+            if (storeScope > 0)
+            {
+                model.CountryCode_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.CountryCode, storeScope);
+                model.NumberLength_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.NumberLength, storeScope);
+                model.From_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.From, storeScope);
+                model.MessageTemplate_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.MessageTemplate, storeScope);
+                model.ServiceId_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.ServiceId, storeScope);
+                model.ServiceKey_OverrideForStore = _settingService.SettingExists(smsSettings, x => x.ServiceKey, storeScope);
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult SMS(SMSSettingsModel model)
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageSettings))
+                return AccessDeniedView();
+
+            //load settings for a chosen store scope
+            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var smsSettings = _settingService.LoadSetting<SMSSettings>(storeScope);
+            smsSettings = model.ToEntity(smsSettings);
+
+            /* We do not clear cache after each setting update.
+             * This behavior can increase performance because cached settings will not be cleared 
+             * and loaded from database after each update */
+
+            if (model.CountryCode_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.CountryCode, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.CountryCode, storeScope);
+
+            if (model.NumberLength_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.NumberLength, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.NumberLength, storeScope);
+
+            if (model.From_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.From, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.From, storeScope);
+
+            if (model.MessageTemplate_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.MessageTemplate, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.MessageTemplate, storeScope);
+
+            if (model.ServiceId_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.ServiceId, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.ServiceId, storeScope);
+
+            if (model.ServiceKey_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(smsSettings, x => x.ServiceKey, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(smsSettings, x => x.ServiceKey, storeScope);
+            
+            //now clear settings cache
+            _settingService.ClearCache();
+
+            //activity log
+            _customerActivityService.InsertActivity("EditSettings", _localizationService.GetResource("ActivityLog.EditSettings"));
+
+            SuccessNotification(_localizationService.GetResource("Admin.Configuration.Updated"));
+            return RedirectToAction("SMS");
+        }
 
 
         public ActionResult Forum()
