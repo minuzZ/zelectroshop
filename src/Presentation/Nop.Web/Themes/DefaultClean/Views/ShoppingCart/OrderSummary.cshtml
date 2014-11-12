@@ -1,0 +1,100 @@
+﻿@model ShoppingCartModel
+@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Web.Framework.Themes
+@using Nop.Web.Models.ShoppingCart;
+@{
+    var webHelper = EngineContext.Current.Resolve<IWebHelper>();
+    //logo path
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var deleteImgSrc = "~/Themes/" + currentThemeName + "/Content/img/delete.png";
+}
+<div class="order-summary-content">
+    @Html.Widget("order_summary_content_before")
+    @Html.Partial("_OrderReviewData", Model.OrderReviewData)
+    @if (Model.Items.Count > 0)
+    {
+        if (Model.Warnings.Count > 0)
+        {
+            <div class="message-error">
+                <ul>
+                    @for (int i = 0; i < Model.Warnings.Count; i++)
+                    {
+                        <li>@Model.Warnings[i]</li>
+                    }
+                </ul>
+            </div>
+        }
+@*we add enctype = "multipart/form-data" because "File upload" attribute control type requires it*@
+        using (Html.BeginRouteForm("ShoppingCart", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <table class="products-cart">
+                <tr>
+                    <th width="50%">@T("ShoppingCart.Product(s)")</th>
+                    <th width="12%">@T("ShoppingCart.UnitPrice")</th>
+                    <th width="20%">@T("ShoppingCart.Quantity")</th>
+                    <th width="13%">@T("ShoppingCart.ItemTotal")</th>
+                    <th width="5%"></th>
+                </tr>
+                @foreach (var item in Model.Items)
+                {
+                    <tr>
+                        <td><img alt="@item.Picture.AlternateText" src="@item.Picture.ImageUrl" /> <span>@item.ProductName</span></td>
+                        <td>@item.UnitPrice руб</td>
+                        <td><input name="itemquantity@(item.Id)" type="text" value="@(item.Quantity)"></td>
+                        <td>@item.SubTotal</td>
+                        <td><img class="delete" src="@deleteImgSrc" /></td>
+                    </tr>
+                }
+            </table>
+            @Html.Action("OrderTotals", "ShoppingCart", new {isEditable = Model.IsEditable})
+
+            <table class="order-form">
+                    <tr>
+                        <td>Имя и фамилия</td>
+                        <td><input type="text" name="fio" /></td>
+                    </tr>
+                    <tr>
+                        <td>Контактный телефон <span class="required">*</span></td>
+                        <td><input type="text" name="phone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Город доставки</td>
+                        <td><input type="text" name="city" /></td>
+                    </tr>
+                    <tr>
+                        <td>Адрес доставки</td>
+                        <td><input type="text" name="address" /></td>
+                    </tr>
+                    <tr>
+                        <td class="middle">Комментарий к заказу</td>
+                        <td><textarea name="comment"></textarea></td>
+                    </tr>
+                </table>
+        
+            <div class="checkout-buttons">
+                @if (String.IsNullOrEmpty(Model.MinOrderSubtotalWarning))
+                {
+                    <button type="submit" id="checkout" name="checkout" value="checkout" class="button checkout-button">
+                        @T("Checkout.Button")
+                    </button>
+                }
+            </div>
+            <div class="addon-buttons">
+                @*Payment method buttons (e.g. GoogleCheckoutButton, Paypal Express)*@
+                @Html.Partial("_ButtonPaymentMethod", Model)
+            </div>
+        }
+
+    if (Model.IsEditable)
+    {
+    @Html.Action("CrossSellProducts", "Product")
+    }
+    }
+    
+    else
+    {
+    @T("ShoppingCart.CartIsEmpty")
+    }
+    @Html.Widget("order_summary_content_after")
+</div>

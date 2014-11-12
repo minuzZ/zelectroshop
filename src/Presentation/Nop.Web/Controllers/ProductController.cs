@@ -908,6 +908,9 @@ namespace Nop.Web.Controllers
             //prepare the model
             var model = PrepareProductDetailsPageModel(product, updatecartitem, false);
 
+            model.ProductReviews = new ProductReviewsModel();
+            PrepareProductReviewsModel(model.ProductReviews, product);
+
             //save as recently viewed
             _recentlyViewedProductsService.AddProductToRecentlyViewedList(product.Id);
 

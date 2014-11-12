@@ -88,6 +88,8 @@ namespace Nop.Web.Models.Catalog
 
         public ProductReviewOverviewModel ProductReviewOverview { get; set; }
 
+        public ProductReviewsModel ProductReviews { get; set; }
+
         public IList<TierPriceModel> TierPrices { get; set; }
 
         //a list of associated products. For example, "Grouped" products could have several child "simple" products

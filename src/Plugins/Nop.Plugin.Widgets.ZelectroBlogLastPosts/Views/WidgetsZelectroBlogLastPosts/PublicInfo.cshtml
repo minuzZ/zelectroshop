@@ -1,0 +1,28 @@
+﻿@model Nop.Plugin.Widgets.ZelectroBlogLastPosts.Models.PublicInfoModel
+@{
+    Layout = "";
+
+    Html.AddCssFileParts("~/Plugins/Widgets.ZelectroBlogLastPosts/Content/zelectro-blog-last-posts.css");
+}
+@using System
+@using Nop.Web.Framework.UI
+
+@helper RenderPostLine(string pictureUrl, string text, string link, string header)
+{
+    <li class="post">
+        <img src="@pictureUrl" />
+        <span>
+            @header
+        </span>
+        <div class="gray-text">
+           @text
+        </div>
+        <a target="_blank" href="@link">читать далее</a>
+    </li>
+}
+
+<ul class="last-blog-posts">
+    @RenderPostLine(Model.Picture1Url, Model.Text1, Model.Link1, Model.Header1)
+    @RenderPostLine(Model.Picture2Url, Model.Text2, Model.Link2, Model.Header2)
+    @RenderPostLine(Model.Picture3Url, Model.Text3, Model.Link3, Model.Header3)
+</ul>

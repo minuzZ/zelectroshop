@@ -1,0 +1,8 @@
+﻿Group: Widgets
+FriendlyName: Zelectro Blog Last Posts
+SystemName: Widgets.ZelectroBlogLastPosts
+Version: 1.0.0.0
+SupportedVersions: 3.50
+Author: Zelectro team
+DisplayOrder: 1
+FileName: Nop.Plugin.Widgets.ZelectroBlogLastPosts.dll

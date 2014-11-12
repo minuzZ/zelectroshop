@@ -1,0 +1,84 @@
+﻿@model CategoryModel
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(categoryUrl);
+    }
+    var PRODUCTS_IN_ROW = 4;
+}
+@using Nop.Core.Domain.Common;
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+@using Nop.Web.Extensions;
+
+<div class="page category-page">
+    <div class="page-body">
+        @Html.Widget("categorydetails_before_subcategories", Model.Id)
+        @*subcategories*@
+        @if (Model.SubCategories.Count > 0)
+        {
+            <ul class="subcategories">
+                <li><span>Все</span></li>
+                @foreach (var item in Model.SubCategories)
+                {
+                    <li><a href="@Url.RouteUrl("Category", new {SeName = item.SeName})">@item.Name</a></li>
+                }
+            </ul>
+        }
+        @*sibcategories*@
+        @if (Model.SibCategories.Count > 0 && Model.CategoryBreadcrumb.Count > 2)
+        {
+            <ul class="subcategories">
+                <li><a href="@Url.RouteUrl("Category", new { SeName = Model.CategoryBreadcrumb[Model.CategoryBreadcrumb.Count-2].SeName })">Все</a></li>
+                @foreach (var item in Model.SibCategories)
+                {
+                    <li>
+                        @if (item.Id == Model.Id)
+                        {
+                            <span>@item.Name</span>
+                        }
+                        else
+                        {
+                            <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })">@item.Name</a>
+                        }
+                    </li>
+                }
+            </ul>
+        }
+        
+        @*product list*@
+        @if (Model.Products.Count > 0)
+        {
+            <table class="products">
+            @for (var i = 0; i < ((Model.Products.Count - 1) / PRODUCTS_IN_ROW) + 1; i++)
+            {
+                <tr>
+                    @for (var j = 0; j < PRODUCTS_IN_ROW; j++)
+                    {
+                        if (i * PRODUCTS_IN_ROW + j >= Model.Products.Count)
+                        {
+                            break;
+                        }
+                        var product = Model.Products[i * PRODUCTS_IN_ROW + j];
+                        <td>
+                            @Html.Partial("_ProductBox", product)
+                        </td>
+                    }
+                </tr>
+            }
+            </table>
+        }
+        <div class="pager">
+            @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+        </div>
+        @Html.Widget("categorydetails_bottom", Model.Id)
+    </div>
+</div>

@@ -1,0 +1,14 @@
+﻿@model TopMenuModel
+@using Nop.Web.Models.Catalog;
+
+<ul class="top-menu">
+    @Html.Widget("header_menu_before")
+
+    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
+    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
+    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("guarantee") })">@T("Guarantee")</a></li>
+    <li><a href="http://zelectro.cc/">Статьи и обзоры</a></li>
+    <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+    <li class="right">Товаров в вашей <a href="@Url.RouteUrl("ShoppingCart")">корзине</a>: <span class="count">(@Model.ShoppingCartItems)</span></li> 
+    @Html.Widget("header_menu_after")
+</ul>

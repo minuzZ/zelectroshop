@@ -1,0 +1,41 @@
+﻿@using Nop.Core
+@using Nop.Core.Infrastructure
+@using Nop.Services.Localization
+@using Nop.Web.Framework.Themes
+@{
+    //logo path
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var logoPath = "~/Themes/" + currentThemeName + "/Content/img/logo.gif";
+
+    //store name
+    var storeName = EngineContext.Current.Resolve<IStoreContext>().CurrentStore.GetLocalized(x => x.Name);
+}
+
+<!-- header -->
+<div id="header">
+    <div class="container">
+        <div class="logo">
+            <a href="@Url.RouteUrl("HomePage")"><img src="@Url.Content(logoPath)" alt="@storeName" /></a>
+        </div>
+        <div class="descriptor">
+            <h1 class="descriptor-name">Интернет магазин Arduino</h1>
+            <div class="descriptor-description">с доставкой по всей России <!-- <img src="/img/russia.png"> --></div>
+        </div>
+        <div class="phone-block">
+            <h1 class="phone">+7 978 804-78-27</h1>
+            <div class="callback">заказать звонок</div>
+            <div class="search">
+                <form action="/search">
+                    @Html.Action("SearchBox", "Catalog")
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="menu">
+        <div class="container">
+            @Html.Action("TopMenu", "Catalog")
+        </div>
+    </div>
+</div>
+<!-- /header -->

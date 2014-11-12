@@ -1,0 +1,21 @@
+﻿@model ProductDetailsModel
+@using Nop.Core.Domain.Media
+@using Nop.Core.Infrastructure;
+@using Nop.Web.Models.Catalog;
+@{
+    Html.AddScriptParts("~/Scripts/jquery.magnific-popup.js");
+    Html.AddCssFileParts("~/Content/magnific-popup/magnific-popup.css");
+}
+
+<div class="photoes">
+    <div class="main-image">
+        <img src="@Model.DefaultPictureModel.FullSizeImageUrl" alt="@Model.DefaultPictureModel.AlternateText" />
+    </div>
+    @for (int i = 0; i < Model.PictureModels.Count; i++)
+    {
+        var picture = Model.PictureModels[i];
+        <div class="small-image">
+            <img src="@picture.FullSizeImageUrl" alt="@picture.AlternateText" title="@picture.Title" />
+        </div>
+    }
+</div>

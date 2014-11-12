@@ -1,0 +1,16 @@
+﻿@model OrderTotalsModel
+@using Nop.Web.Models.ShoppingCart;
+<div class="sum-info">
+    <div>@T("ShoppingCart.Totals.SubTotal"): @Model.SubTotal руб</div>
+    <div>@T("ShoppingCart.Totals.OrderTotal"): 
+        @if (!String.IsNullOrEmpty(Model.OrderTotal))
+        {
+            <span class="product-price order-total"><strong>@Model.OrderTotal руб</strong></span>
+        }
+        else
+        {
+            <span>@T("ShoppingCart.Totals.CalculatedDuringCheckout")</span>
+        }    
+    </div>
+</div>
+

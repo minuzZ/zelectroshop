@@ -1,0 +1,31 @@
+﻿@model FooterModel
+@using Nop.Core
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Common;
+
+
+<!-- footer -->
+<div id="footer">
+    <div class="container">
+        <ul class="footer-left">
+            <li><h2>Как заказать?</h2></li>
+            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
+            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("guarantee") })">@T("Guarantee")</a></li>
+            <li><a href="@Url.RouteUrl("ShoppingCart")">Корзина</a></li>
+        </ul>
+        <ul class="footer-center">
+            <li><h2>Вступай в сообщество</h2></li>
+            <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
+            <li><a href="http://zelectro.cc">Статьи и обзоры</a></li>
+            <li><a href="http://vk.com/zelectro">Группа Вконтакте</a></li>
+        </ul>
+        <ul class="footer-right">
+            <li><h2>Как с нами связаться?</h2></li>
+            <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+            <li>+7 978 804-78-27</li>
+            <li><a href="mailto:support@zelectro.cc">support@zelectro.cc</a></li>
+        </ul>
+    </div>
+</div>
+<!-- /footer -->

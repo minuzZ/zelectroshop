@@ -225,6 +225,19 @@ namespace Nop.Web.Infrastructure.Cache
         public const string CATEGORY_SUBCATEGORIES_PATTERN_KEY = "Nop.pres.category.subcategories";
 
         /// <summary>
+        /// Key for caching of sibcategories of certain category
+        /// </summary>
+        /// <remarks>
+        /// {0} : category id
+        /// {1} : roles of the current user
+        /// {2} : current store ID
+        /// {3} : language ID
+        /// {4} : is connection SSL secured (included in a category picture URL)
+        /// </remarks>
+        public const string CATEGORY_SIBCATEGORIES_KEY = "Nop.pres.category.sibcategories-{0}-{1}-{2}-{3}-{4}";
+        public const string CATEGORY_SIBCATEGORIES_PATTERN_KEY = "Nop.pres.category.sibcategories";
+
+        /// <summary>
         /// Key for caching of categories displayed on home page
         /// </summary>
         /// <remarks>

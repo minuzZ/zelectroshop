@@ -1,0 +1,12 @@
+﻿@model Nop.Plugin.Widgets.VkCommunity.Models.PublicInfoModel
+@{
+    Layout = "";
+
+    Html.AddCssFileParts("~/Plugins/Widgets.VkCommunity/Content/vk-community.css");
+}
+@using System
+@using Nop.Web.Framework.UI
+
+<div class="vk-widget">
+    @Html.Raw(Model.VkCode)
+</div>

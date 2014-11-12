@@ -1,0 +1,30 @@
+﻿.last-blog-posts {
+	float: left;
+}
+
+.last-blog-posts li.post {
+	clear: both;
+	width: 600px;
+	margin-top: 23px;
+	text-align: justify;
+}
+
+.last-blog-posts li.post img {
+	width: 150px;
+	margin-right: 20px;
+	float: left;
+}
+
+.last-blog-posts li.post span {
+	font-weight: bold;
+}
+
+.last-blog-posts li.post .gray-text {
+	position: relative;
+	top: 10px;
+	color: #888888;
+}
+
+.last-blog-posts li.post a {
+	float: right;
+}

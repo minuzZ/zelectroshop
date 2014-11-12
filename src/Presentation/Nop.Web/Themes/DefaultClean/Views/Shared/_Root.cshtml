@@ -1,0 +1,45 @@
+﻿@using Nop.Core.Infrastructure
+@using Nop.Web.Framework.Themes
+@{
+    Layout = "~/Views/Shared/_Root.Head.cshtml"; 
+    var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
+    var closeImg = "~/Themes/" + currentThemeName + "/Content/img/close.png";
+}
+@Html.Widget("body_start_html_tag_after")
+@Html.Partial("_Notifications")
+<div id="wrapper">
+    @Html.Action("JavaScriptDisabledWarning", "Common")
+    <div class="master-wrapper-content">
+        <script type="text/javascript">
+            AjaxCart.init(false, '.top-menu .count', '.header-links .wishlist-qty', '#flyout-cart');
+        </script>
+        @Html.Partial("Header")
+        @Html.Widget("content_before")
+        @*ajax loading window*@
+        <div class="ajax-loading-block-window" style="display: none">
+            <div class="loading-image">
+            </div>
+        </div>
+        <div class="master-wrapper-main">
+            <div id="content">
+                @RenderBody()
+            </div>
+        </div>
+        @Html.Widget("content_after")
+    </div>
+    @Html.Action("Footer", "Common")
+</div>
+<!-- /wrapper -->
+<div id="popup-wrapper">
+    <h1>Отправьте заявку</h1>
+    <img src="@closeImg" class="close" />
+    <div>
+        <input type="text" name="fio" placeholder="Имя" />
+    </div>
+    <div>
+        <input type="text" name="phone" placeholder="Телефон" />
+    </div>
+    <div class="button">Заказать звонок</div>
+</div> <!-- popup-wrapper -->
+@Html.Action("EuCookieLaw", "Common")
+@Html.Widget("body_end_html_tag_before")

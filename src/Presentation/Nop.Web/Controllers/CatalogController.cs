@@ -11,6 +11,7 @@ using Nop.Core.Domain.Common;
 using Nop.Core.Domain.Customers;
 using Nop.Core.Domain.Forums;
 using Nop.Core.Domain.Media;
+using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Topics;
 using Nop.Core.Domain.Vendors;
 using Nop.Services.Catalog;
@@ -20,6 +21,7 @@ using Nop.Services.Events;
 using Nop.Services.Localization;
 using Nop.Services.Logging;
 using Nop.Services.Media;
+using Nop.Services.Orders;
 using Nop.Services.Security;
 using Nop.Services.Seo;
 using Nop.Services.Stores;
@@ -533,6 +535,45 @@ namespace Nop.Web.Controllers
                 .ToList();
             });
 
+            //sibcategories
+            string sibCategoriesCacheKey = string.Format(ModelCacheEventConsumer.CATEGORY_SIBCATEGORIES_KEY,
+                categoryId,
+                string.Join(",", customerRolesIds),
+                _storeContext.CurrentStore.Id,
+                _workContext.WorkingLanguage.Id,
+                _webHelper.IsCurrentConnectionSecured());
+            model.SibCategories = _cacheManager.Get(sibCategoriesCacheKey, () =>
+            {
+                return _categoryService.GetAllCategoriesByParentCategoryId(category.ParentCategoryId)
+                .Select(x =>
+                {
+                    var sibCatModel = new CategoryModel.SubCategoryModel()
+                    {
+                        Id = x.Id,
+                        Name = x.GetLocalized(y => y.Name),
+                        SeName = x.GetSeName(),
+                    };
+
+                    //prepare picture model
+                    int pictureSize = _mediaSettings.CategoryThumbPictureSize;
+                    var categoryPictureCacheKey = string.Format(ModelCacheEventConsumer.CATEGORY_PICTURE_MODEL_KEY, x.Id, pictureSize, true, _workContext.WorkingLanguage.Id, _webHelper.IsCurrentConnectionSecured(), _storeContext.CurrentStore.Id);
+                    sibCatModel.PictureModel = _cacheManager.Get(categoryPictureCacheKey, () =>
+                    {
+                        var picture = _pictureService.GetPictureById(x.PictureId);
+                        var pictureModel = new PictureModel()
+                        {
+                            FullSizeImageUrl = _pictureService.GetPictureUrl(picture),
+                            ImageUrl = _pictureService.GetPictureUrl(picture, pictureSize),
+                            Title = string.Format(_localizationService.GetResource("Media.Category.ImageLinkTitleFormat"), sibCatModel.Name),
+                            AlternateText = string.Format(_localizationService.GetResource("Media.Category.ImageAlternateTextFormat"), sibCatModel.Name)
+                        };
+                        return pictureModel;
+                    });
+
+                    return sibCatModel;
+                })
+                .ToList();
+            });
 
 
 
@@ -693,7 +734,7 @@ namespace Nop.Web.Controllers
                     })
                     .ToList();
             });
-            var model = new TopMenuModel()
+            var model = new  TopMenuModel()
             {
                 Categories = cachedCategoriesModel,
                 Topics = cachedTopicModel,
@@ -701,6 +742,11 @@ namespace Nop.Web.Controllers
                 BlogEnabled = _blogSettings.Enabled,
                 ForumEnabled = _forumSettings.ForumsEnabled
             };
+            model.ShoppingCartItems = _workContext.CurrentCustomer.ShoppingCartItems
+                    .Where(sci => sci.ShoppingCartType == ShoppingCartType.ShoppingCart)
+                    .LimitPerStore(_storeContext.CurrentStore.Id)
+                    .ToList()
+                    .GetTotalProducts();
             return PartialView(model);
         }
         

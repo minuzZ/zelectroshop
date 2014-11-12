@@ -1,0 +1,44 @@
+﻿@model ProductOverviewModel
+@using Nop.Core
+@using Nop.Core.Domain.Orders
+@using Nop.Core.Domain.Tax
+@using Nop.Core.Infrastructure
+@using Nop.Web.Models.Catalog;
+@{
+    //prepare "Add to cart" AJAX link
+    string addtocartlink = "";
+    var shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart;
+    var quantity = 1;
+    if (Model.ProductPrice.ForceRedirectionAfterAddingToCart)
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+    else
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, });
+    }    
+}
+
+<div class="product" data-productid="@Model.Id">
+    <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
+        <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" />
+         <!--TODO <img class="label" src="/img/new.png" />-->
+        @Model.Name
+    </a>
+    <div class="product-price">
+        @Model.ProductPrice.Price руб
+    </div>
+    <div class="button">
+        @if (!Model.ProductPrice.DisableBuyButton)
+        {
+            if (Model.ProductPrice.StockQuantity == 0)
+            {
+                <input type="button" value="@T("ShoppingCart.NotInStock")" class="button-2 product-box-add-to-cart-button-disabled" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false;" />
+            }
+            else
+            {
+                <input type="button" value="@(Model.ProductPrice.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart"))" class="button-2 product-box-add-to-cart-button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false;" />
+            }
+        }
+    </div>
+</div>

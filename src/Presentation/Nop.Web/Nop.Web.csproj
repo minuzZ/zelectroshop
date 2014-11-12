@@ -1449,6 +1449,8 @@
     <Content Include="Scripts\kendo\2014.1.318\kendo.view.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.web.min.js" />
     <Content Include="Scripts\kendo\2014.1.318\kendo.window.min.js" />
+    <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\tag-it.js" />
     <Content Include="Scripts\tag-it.min.js" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
@@ -1519,17 +1521,8 @@
     <Content Include="Scripts\kendo\2014.1.318\kendo.autocomplete.min.js.map" />
     <Content Include="Scripts\kendo\2014.1.318\jquery.min.map" />
     <None Include="Scripts\_references.js" />
-    <Content Include="Themes\DefaultClean\Content\images\free-shipping.png" />
-    <Content Include="Themes\DefaultClean\Content\images\mobile-menu-collapse.png" />
-    <Content Include="Themes\DefaultClean\Content\images\mobile-menu-expand.png" />
-    <Content Include="Themes\DefaultClean\Content\images\top-menu-background.png" />
-    <Content Include="Themes\DefaultClean\Content\images\top-menu-divider.png" />
-    <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image-hover.png" />
-    <Content Include="Themes\DefaultClean\Content\images\top-menu-list-image.png" />
-    <Content Include="Themes\DefaultClean\Content\images\top-menu-triangle.png" />
-    <Content Include="Themes\DefaultClean\Content\responsive.css" />
-    <Content Include="Themes\DefaultClean\Content\images\star-x-active.png" />
-    <Content Include="Themes\DefaultClean\Content\images\star-x-inactive.png" />
+    <Content Include="Themes\DefaultClean\Content\css\owl.carousel.css" />
+    <Content Include="Themes\DefaultClean\Content\css\owl.theme.css" />
     <Content Include="Themes\DefaultClean\preview.jpg" />
     <Content Include="Content\Images\default-avatar.jpg" />
     <Content Include="Content\Images\flags\ad.png" />
@@ -1779,13 +1772,6 @@
     <Content Include="Content\Images\flags\za.png" />
     <Content Include="Content\Images\flags\zm.png" />
     <Content Include="Content\Images\flags\zw.png" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-close-notification-bar.png" />
-    <Content Include="Themes\DefaultClean\Content\images\bullet-left.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\bullet-right.gif" />
-    <Content Include="Themes\DefaultClean\Content\styles.rtl.css" />
-    <Content Include="Themes\DefaultClean\Content\ie6.css" />
-    <Content Include="Themes\DefaultClean\Content\ie7.css" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-rss.gif" />
     <Content Include="Content\Images\default-image.gif" />
     <Content Include="Content\install\images\install-synchronizing.gif" />
     <Content Include="Content\Images\uploaded\placeholder.txt" />
@@ -1890,27 +1876,7 @@
     <Content Include="Scripts\jquery.fancybox-1.3.4.pack.js" />
     <Content Include="Scripts\public.onepagecheckout.js" />
     <Content Include="Scripts\public.common.js" />
-    <Content Include="Themes\DefaultClean\Content\images\ajax_loader_large.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ajax_loader_small.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\bbeditor-button-bg.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\download-sample-bg.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\forum-footer-bg.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\forum-header-bg.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-arrow-r.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-delete.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-edit.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-forum-post-add.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-forum-post-high.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-forum-post.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-forum-watch.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-forum.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-move-topic.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\ico-pm.png" />
-    <Content Include="Themes\DefaultClean\Content\images\arrow-up.png" />
-    <Content Include="Themes\DefaultClean\Content\images\logo.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\progress-step-active.gif" />
-    <Content Include="Themes\DefaultClean\Content\images\progress-step-inactive.gif" />
-    <Content Include="Themes\DefaultClean\Content\styles.css" />
+    <Content Include="Themes\DefaultClean\Content\css\style.css" />
     <Content Include="Themes\print.css" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1952,9 +1918,45 @@
     <Content Include="Views\Common\StoreThemeSelector.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
     <Content Include="Views\Customer\_CustomerAttributes.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\Head.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Web.config" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_ColumnsOne.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_ColumnsTwo.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_CreateOrUpdateAddress.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_Notifications.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_Print.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_ProductBox.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_Root.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_Root.Head.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_RootPopup.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\Error.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\Header.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\LanguageAttributes.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\SearchBox.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\TopMenu.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Home\Index.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\HomepageCategories.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\HomepageBestSellers.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\_ProductBox.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\HomepageProducts.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Common\Footer.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Shared\_ColumnsThree.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\CategoryNavigation.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Simple.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductsAlsoPurchased.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\RelatedProducts.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Catalog\Search.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\ShoppingCart\Cart.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\ShoppingCart\OrderSummary.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\ShoppingCart\OrderTotals.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\ProductReviews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
+    <Folder Include="Themes\DefaultClean\Content\img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Nop.Core\Nop.Core.csproj">
@@ -1976,7 +1978,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Themes\DefaultClean\theme.config" />
-    <Content Include="Themes\DefaultClean\Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />
@@ -2138,7 +2139,6 @@
     <Content Include="Views\ShoppingCart\_ButtonPaymentMethod.cshtml" />
     <Content Include="Views\ShoppingCart\_OrderReviewData.cshtml" />
     <Content Include="Views\Common\StoreClosed.cshtml" />
-    <Content Include="Themes\DefaultClean\Views\Shared\Head.cshtml" />
     <Content Include="Views\Common\AdminHeaderLinks.cshtml" />
     <Content Include="Views\Common\PageNotFound.cshtml" />
     <Content Include="Views\Common\EuCookieLaw.cshtml" />

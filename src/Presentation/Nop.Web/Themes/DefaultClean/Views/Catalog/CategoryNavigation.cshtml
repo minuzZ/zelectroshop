@@ -1,0 +1,47 @@
+﻿@model CategoryNavigationModel
+@using Nop.Web.Models.Catalog;
+
+@functions{
+    public bool BreadCrumbContainsCurrentCategoryId(CategorySimpleModel category)
+    {
+        if (Model.CurrentCategoryId == 0)
+            return false;
+
+        if (category.Id == Model.CurrentCategoryId)
+            return true;
+
+        foreach (var subCategory in category.SubCategories)
+        {
+            if (BreadCrumbContainsCurrentCategoryId(subCategory))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}
+@helper RenderCategoryLine(CategorySimpleModel category)
+{
+    <li>
+        @{
+            if (category.Id == Model.CurrentCategoryId)
+            {
+                <span>@category.Name</span>
+            }
+            else
+            {
+                <a href="@Url.RouteUrl("Category", new { SeName = category.SeName })">@category.Name</a>
+            }
+        }
+    </li>
+}
+@if (Model.Categories.Count > 0)
+{
+    <ul class="categories-list">
+        @foreach (var category in Model.Categories)
+        {
+            @RenderCategoryLine(category)
+        }
+    </ul>
+}

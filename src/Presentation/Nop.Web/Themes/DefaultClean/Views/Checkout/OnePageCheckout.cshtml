@@ -1,0 +1,44 @@
+﻿@model OnePageCheckoutModel
+@using Nop.Web.Models.Checkout;
+@using Nop.Core.Infrastructure;
+@{
+    Layout = "~/Views/Shared/_ColumnsOne.cshtml";
+
+    var storeLocation = EngineContext.Current.Resolve<Nop.Core.IWebHelper>().GetStoreLocation();
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Checkout").Text);
+}
+
+<div class="page checkout-page container">
+    <div id="main">
+        <div class="text">
+            <form action="#" method="POST">
+                <table class="order-form">
+                    <tr>
+                        <td>Имя и фамилия</td>
+                        <td><input type="text" name="fio" /></td>
+                    </tr>
+                    <tr>
+                        <td>Контактный телефон <span class="required">*</span></td>
+                        <td><input type="text" name="phone" /></td>
+                    </tr>
+                    <tr>
+                        <td>Город доставки</td>
+                        <td><input type="text" name="city" /></td>
+                    </tr>
+                    <tr>
+                        <td>Адрес доставки</td>
+                        <td><input type="text" name="address" /></td>
+                    </tr>
+                    <tr>
+                        <td class="middle">Комментарий к заказу</td>
+                        <td><textarea name="comment"></textarea></td>
+                    </tr>
+                </table>
+                <input type="submit" name="submit" class="button order-button" value="Отправить заказ">
+            </form>
+        </div>
+    </div>
+</div>
+
