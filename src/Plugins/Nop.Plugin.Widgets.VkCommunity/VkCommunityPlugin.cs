@@ -33,7 +33,7 @@ namespace Nop.Plugin.Widgets.VkCommunity
         /// <returns>Widget zones</returns>
         public IList<string> GetWidgetZones()
         {
-            return new List<string>() { "home_page_top", "left_side_column_after" };
+            return new List<string>() { "home_page_top" };
         }
 
         /// <summary>

@@ -4,13 +4,18 @@
 <div class="page home-page">
     <div class="page-body">
         @Html.Action("HomepageCategories", "Catalog")
+        @Html.Action("HomepageProducts", "Product")
+        @Html.Action("HomepageBestSellers", "Product")
+        
+        <div class="container">
+            <hr class="faded" />
+            <h2>Следите за сообществом Zelectro</h2>
+        </div>
         <div class="community-index">
             <div class="container">
                 @Html.Widget("home_page_top")
             </div>
         </div>
-        @Html.Action("HomepageProducts", "Product")
-        @Html.Action("HomepageBestSellers", "Product")
         @Html.Widget("home_page_bottom")
         <div class="seo-block">
             <div class="container">

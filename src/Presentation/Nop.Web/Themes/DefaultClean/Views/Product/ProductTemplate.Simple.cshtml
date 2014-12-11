@@ -66,74 +66,96 @@
         @Html.Widget("productdetails_top", Model.Id)
         @using (Html.BeginRouteForm("Product", new {SeName = Model.SeName}, FormMethod.Post, new {id = "product-details-form"}))
         {
-            
             <h2>@Model.Name</h2>
-            @Html.Partial("_ProductDetailsPictures", Model)
-         
-            <div class="product-additional">
-                <div class="price">
-                    @Model.ProductPrice.Price руб
-                </div>
-                <div class="exists">
-                    @Model.StockAvailability
-                </div>
-                <div class="button">
+            <div class="prod-top-part">
+                @Html.Partial("_ProductDetailsPictures", Model)
+                <div class="product-additional">
+                    <div class="price">
+                        @Model.ProductPrice.Price
+                    </div>
+                    <div class="qtyblock">
+                        <input type='button' value='-' class='qtyminus button' field='quantity' />
+                        <input type='text' name='quantity' value='0' class='qty' />
+                        <input type='button' value='+' class='qtyplus button' field='quantity' />
+                    </div>
                     @if (Model.AddToCart.StockQuantity == 0)
                     {
-                        <input type="button" value="@T("ShoppingCart.NotInStock")" class="button-2 product-box-add-to-cart-button-disabled" onclick=" AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false; " />
+                        <input type="button" value="@T("ShoppingCart.NotInStock")" class="button notinstock" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false; " />
                     }
                     else
                     {
-                        <input type="button" value="@T("ShoppingCart.AddToCart")" class="button-2 product-box-add-to-cart-button" onclick=" AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false; " />
+                        <input type="button" value="@T("ShoppingCart.AddToCart")" class="button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false; " />
                     }
+                    <div class="rating">
+                        @for (var i = 0; i < avgRating; i++)
+                        {
+                            <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
+                        }
+                        @for (var i = avgRating; i < 5; i++)
+                        {
+                            <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
+                        }
+                    </div> 
+                    <div class="feedback">(@Model.ProductReviewOverview.TotalReviews @T("Reviews.Overview.Reviews"))</div> | 
+                    <a href="@Url.RouteUrl("ProductReviews", new {productId = Model.ProductReviewOverview.ProductId})">@T("Reviews.Overview.AddNew")</a>
                 </div>
-                <div class="rating">
-                    @for (var i = 0; i < avgRating; i++)
-                    {
-                        <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
-                    }
-                    @for (var i = avgRating; i < 5; i++)
-                    {
-                        <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
-                    }
-                </div> 
-                <div class="feedback">(@Model.ProductReviewOverview.TotalReviews @T("Reviews.Overview.Reviews"))</div> | 
-                <a href="@Url.RouteUrl("ProductReviews", new {productId = Model.ProductReviewOverview.ProductId})">@T("Reviews.Overview.AddNew")</a>
-            </div>
-            <div class="description">
-                @Html.Raw(Model.FullDescription)
             </div>
         }
-            
-        
+        <div class="description">
+            @Html.Raw(Model.FullDescription)
+        </div>
+        <div class="reviews">
+            <h2>Отзывы о товаре</h2>
+            <ul class="feedbacks">
+                @foreach (var review in Model.ProductReviews.Items)
+                {
+                    <li>
+                        <div class="rating">
+                            @for (var i = 0; i < review.Rating; i++)
+                            {
+                                <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
+                            }
+                            @for (var i = review.Rating; i < 5; i++)
+                            {
+                                <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
+                            }
+                        </div>
+                        <div class="meta">
+                            от <span class="author">@(review.CustomerName)</span> | Дата: <span class="feedback-date">@review.WrittenOnStr</span>
+                        </div>
+                        <div class="text">
+                            @review.Title <br />
+                            @Html.Raw(Nop.Core.Html.HtmlHelper.FormatText(review.ReviewText, false, true, false, false, false, false))
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>
     </div>
 </div>
-</div>
-<h2>Отзывы о товаре</h2>
-<ul class="feedbacks">
-    @foreach (var review in Model.ProductReviews.Items)
-    {
-        <li>
-            <div class="rating">
-                @for (var i = 0; i < review.Rating; i++)
-                {
-                    <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
-                }
-                @for (var i = review.Rating; i < 5; i++)
-                {
-                    <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
-                }
-            </div>
-            <div class="meta">
-                от <span class="author">@(review.CustomerName)</span> | Дата: <span class="feedback-date">@review.WrittenOnStr</span>
-            </div>
-            <div class="text">
-                @review.Title <br/>
-                @Html.Raw(Nop.Core.Html.HtmlHelper.FormatText(review.ReviewText, false, true, false, false, false, false))
-            </div>
-        </li>
-    }
-</ul>
 @Html.Action("ProductsAlsoPurchased", "Product", new {productId = Model.Id})
 @Html.Action("RelatedProducts", "Product", new {productId = Model.Id})
-<div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.qtyplus').click(function (e) {
+            e.preventDefault();
+            fieldName = $(this).attr('field');
+            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+            if (!isNaN(currentVal)) {
+                $('input[name=' + fieldName + ']').val(currentVal + 1);
+            } else {
+                $('input[name=' + fieldName + ']').val(0);
+            }
+        });
+        $(".qtyminus").click(function (e) {
+            e.preventDefault();
+            fieldName = $(this).attr('field');
+            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
+            if (!isNaN(currentVal) && currentVal > 0) {
+                $('input[name=' + fieldName + ']').val(currentVal - 1);
+            } else {
+                $('input[name=' + fieldName + ']').val(0);
+            }
+        });
+    });
+</script>

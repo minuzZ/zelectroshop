@@ -1937,7 +1937,6 @@
     <Content Include="Themes\DefaultClean\Views\Home\Index.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Catalog\HomepageCategories.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\HomepageBestSellers.cshtml" />
-    <Content Include="Themes\DefaultClean\Views\Product\_ProductBox.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\HomepageProducts.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Common\Footer.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Shared\_ColumnsThree.cshtml" />

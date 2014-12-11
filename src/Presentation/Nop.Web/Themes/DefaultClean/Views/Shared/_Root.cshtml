@@ -11,7 +11,7 @@
     @Html.Action("JavaScriptDisabledWarning", "Common")
     <div class="master-wrapper-content">
         <script type="text/javascript">
-            AjaxCart.init(false, '.top-menu .count', '.header-links .wishlist-qty', '#flyout-cart');
+            AjaxCart.init(false, '.menu .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
         </script>
         @Html.Partial("Header")
         @Html.Widget("content_before")

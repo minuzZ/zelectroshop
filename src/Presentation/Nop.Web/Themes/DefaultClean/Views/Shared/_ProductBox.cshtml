@@ -19,26 +19,25 @@
     }
 }
 
-<div class="product" data-productid="@Model.Id">
+<div class="prod-box" data-productid="@Model.Id">
     <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
         <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" />
-        <!--TODO <img class="label" src="/img/new.png" />-->
-        @Model.Name
+        <div class="prod-box title">@Model.Name</div>
+        <div class="prod-box prod-descr">@Model.ShortDescription</div>
     </a>
-    <div class="product-price">
-        @Model.ProductPrice.Price руб
-    </div>
-    <div class="button">
+    <div class="prod-box priceblock">
+        <input type="text" class="prod-box-priceblock-qty" value="1" /> x @Model.ProductPrice.Price
         @if (!Model.ProductPrice.DisableBuyButton)
         {
             if (Model.ProductPrice.StockQuantity == 0)
             {
-            <input type="button" value="@T("ShoppingCart.NotInStock")" class="button-2 product-box-add-to-cart-button-disabled" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false;" />
+                <input type="button" class="prod-box-priceblock-btn notinstock" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" />
             }
             else
             {
-            <input type="button" value="@(Model.ProductPrice.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart"))" class="button-2 product-box-add-to-cart-button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink    ');return false;" />
+                <input type="button" class="prod-box-priceblock-btn" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false;" />
             }
         }
+
     </div>
 </div>

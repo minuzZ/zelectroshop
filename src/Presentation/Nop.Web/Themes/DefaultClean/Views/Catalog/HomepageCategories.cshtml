@@ -1,33 +1,18 @@
 ﻿@model IList<CategoryModel>
 
 @using Nop.Web.Models.Catalog;
-@{
-    const int CATEGORIES_IN_ROW = 4;
-}
+
 @if (Model.Count > 0)
 {
-    <div class="big-category-list">
-		<div class="container">
-			<table class="categories-table">
-            @for (var i = 0; i < ((Model.Count-1) / CATEGORIES_IN_ROW) + 1; i++)
-            {
-                <tr>
-                    @for (var j = 0; j < CATEGORIES_IN_ROW; j++) {
-                        if (i * CATEGORIES_IN_ROW + j >= Model.Count)
-                        {
-                            break;
-                        }
-                        var item = Model[i * CATEGORIES_IN_ROW + j];
-                        <td>
-                            <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
-                                <h2>@item.Name</h2>
-                                <img src="@item.PictureModel.ImageUrl" alt="@item.PictureModel.AlternateText" />
-                            </a>
-                        </td>
-                    }
-                </tr>
-            }
-            </table>
-        </div>
+	<div class="container">
+        @foreach (var item in Model)
+        {
+            <div class="element">
+                <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })">
+                    <span>@item.Name</span>
+                    <img src="@item.PictureModel.ImageUrl" alt="@item.PictureModel.AlternateText" />
+                </a>
+            </div>
+        }
     </div>
 }

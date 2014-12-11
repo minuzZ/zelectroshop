@@ -2,5 +2,7 @@
 	float: right;
 	position: relative;
 	top: 23px;
-    left: -19px;
+}
+#vk_groups {
+    margin-bottom:20px;
 }

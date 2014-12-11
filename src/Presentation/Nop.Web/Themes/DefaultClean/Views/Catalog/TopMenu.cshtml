@@ -1,14 +1,33 @@
 ﻿@model TopMenuModel
 @using Nop.Web.Models.Catalog;
 
-<ul class="top-menu">
+@{
+    var cartLogoPath = "~/Themes/DefaultClean/Content/img/cart_empty.png";
+}
+
+<ul>
     @Html.Widget("header_menu_before")
 
     <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
     <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
-    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("guarantee") })">@T("Guarantee")</a></li>
     <li><a href="http://zelectro.cc/">Статьи и обзоры</a></li>
     <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
-    <li class="right">Товаров в вашей <a href="@Url.RouteUrl("ShoppingCart")">корзине</a>: <span class="count">(@Model.ShoppingCartItems)</span></li> 
-    @Html.Widget("header_menu_after")
+    <li class="right" id="topcartlink">
+        <a href="@Url.RouteUrl("ShoppingCart")">
+            <img class="cart-img" alt="cart logo" src="@Url.Content(cartLogoPath)">
+            Моя корзина: <span class="cart-qty">@Model.ShoppingCartItems</span>
+            @if (Model.ShoppingCartItems > 4 || Model.ShoppingCartItems == 0)
+            {
+                <text>товаров</text>
+            }
+            else if (Model.ShoppingCartItems == 1)
+            {
+                <text>товар</text>
+            }
+            else
+            {
+                <text>товара</text>
+            }
+        </a>
+    </li>
 </ul>

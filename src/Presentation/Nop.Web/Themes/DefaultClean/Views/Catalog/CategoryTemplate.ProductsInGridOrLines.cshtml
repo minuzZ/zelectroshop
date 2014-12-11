@@ -11,7 +11,6 @@
         var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, this.Request.Url.Scheme);
         Html.AddCanonicalUrlParts(categoryUrl);
     }
-    var PRODUCTS_IN_ROW = 4;
 }
 @using Nop.Core.Domain.Common;
 @using Nop.Core.Domain.Seo;
@@ -57,24 +56,12 @@
         @*product list*@
         @if (Model.Products.Count > 0)
         {
-            <table class="products">
-            @for (var i = 0; i < ((Model.Products.Count - 1) / PRODUCTS_IN_ROW) + 1; i++)
+            <div class="prod-boxes-container">
+            @foreach (var prod in Model.Products)
             {
-                <tr>
-                    @for (var j = 0; j < PRODUCTS_IN_ROW; j++)
-                    {
-                        if (i * PRODUCTS_IN_ROW + j >= Model.Products.Count)
-                        {
-                            break;
-                        }
-                        var product = Model.Products[i * PRODUCTS_IN_ROW + j];
-                        <td>
-                            @Html.Partial("_ProductBox", product)
-                        </td>
-                    }
-                </tr>
+                @Html.Partial("_ProductBox", prod)
             }
-            </table>
+            </div>
         }
         <div class="pager">
             @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
