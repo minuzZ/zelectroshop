@@ -138,6 +138,7 @@
     <Compile Include="Controllers\AffiliateController.cs" />
     <Compile Include="Controllers\CampaignController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
+    <Compile Include="Controllers\DynamicPriceController.cs" />
     <Compile Include="Controllers\JbimagesController.cs" />
     <Compile Include="Controllers\RoxyFilemanController.cs" />
     <Compile Include="Controllers\TemplateController.cs" />
@@ -211,6 +212,7 @@
     <Compile Include="Models\Orders\CountryReportLineModel.cs" />
     <Compile Include="Models\Orders\CountryReportModel.cs" />
     <Compile Include="Models\Payments\PaymentMethodRestrictionModel.cs" />
+    <Compile Include="Models\Settings\DynamicPriceSettingsModel.cs" />
     <Compile Include="Models\Settings\SMSSettingsModel.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -1215,6 +1217,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Setting\SMS.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Setting\DynamicPrice.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\DynamicPrice\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

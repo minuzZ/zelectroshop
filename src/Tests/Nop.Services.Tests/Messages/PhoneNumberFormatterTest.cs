@@ -12,7 +12,7 @@ namespace Nop.Services.Tests.Messages
         private IPhoneNumberFormatter formatter;
 
         [SetUp]
-        public new void SetUp()
+        public void SetUp()
         {
             settings = new SMSSettings();
             settings.CountryCode = "+7";

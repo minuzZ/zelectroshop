@@ -43,6 +43,7 @@ using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Topics;
 using Nop.Core.Domain.Vendors;
 using Nop.Core.Domain.SMS;
+using Nop.Core.Domain.DynamicPrice;
 using Nop.Core.Infrastructure;
 using Nop.Core.Plugins;
 using Nop.Services.Authentication.External;
@@ -270,6 +271,7 @@ namespace Nop.Admin.Infrastructure
                 .ForMember(dest => dest.BackorderMode, mo => mo.Ignore())
                 .ForMember(dest => dest.DownloadActivationType, mo => mo.Ignore())
                 .ForMember(dest => dest.GiftCardType, mo => mo.Ignore())
+                .ForMember(dest => dest.FirstCostCurrencyType, mo => mo.Ignore())
                 .ForMember(dest => dest.LowStockActivity, mo => mo.Ignore())
                 .ForMember(dest => dest.ManageInventoryMethod, mo => mo.Ignore())
                 .ForMember(dest => dest.RecurringCyclePeriod, mo => mo.Ignore())
@@ -660,6 +662,12 @@ namespace Nop.Admin.Infrastructure
                 .ForMember(dest => dest.ServiceKey_OverrideForStore, mo => mo.Ignore())
                 .ForMember(dest => dest.CustomProperties, mo => mo.Ignore());
             Mapper.CreateMap<SMSSettingsModel, SMSSettings>();
+            Mapper.CreateMap<DynamicPriceSettings, DynamicPriceSettingsModel>()
+                .ForMember(dest => dest.ActiveStoreScopeConfiguration, mo => mo.Ignore())
+                .ForMember(dest => dest.EuroRate_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.DollarRate_OverrideForStore, mo => mo.Ignore())
+                .ForMember(dest => dest.CustomProperties, mo => mo.Ignore());
+            Mapper.CreateMap<DynamicPriceSettingsModel, DynamicPriceSettings>();
             Mapper.CreateMap<ShippingSettings, ShippingSettingsModel>()
                 .ForMember(dest => dest.ShippingOriginAddress, mo => mo.Ignore())
                 .ForMember(dest => dest.ActiveStoreScopeConfiguration, mo => mo.Ignore())

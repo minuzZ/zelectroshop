@@ -258,6 +258,15 @@ namespace Nop.Admin.Models.Catalog
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.Price")]
         public decimal Price { get; set; }
 
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.FirstCost")]
+        public decimal FirstCost { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.FirstCostCurrencyType")]
+        public int FirstCostCurrencyTypeId { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.Products.Fields.DesiredProfit")]
+        public int DesiredProfit { get; set; }
+
         [NopResourceDisplayName("Admin.Catalog.Products.Fields.OldPrice")]
         public decimal OldPrice { get; set; }
 

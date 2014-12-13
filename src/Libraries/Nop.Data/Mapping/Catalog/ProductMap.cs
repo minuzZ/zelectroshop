@@ -16,6 +16,7 @@ namespace Nop.Data.Mapping.Catalog
             this.Property(p => p.Gtin).HasMaxLength(400);
             this.Property(p => p.AdditionalShippingCharge).HasPrecision(18, 4);
             this.Property(p => p.Price).HasPrecision(18, 4);
+            this.Property(p => p.FirstCost).HasPrecision(18, 4);
             this.Property(p => p.OldPrice).HasPrecision(18, 4);
             this.Property(p => p.ProductCost).HasPrecision(18, 4);
             this.Property(p => p.SpecialPrice).HasPrecision(18, 4);
@@ -32,6 +33,7 @@ namespace Nop.Data.Mapping.Catalog
             this.Ignore(p => p.BackorderMode);
             this.Ignore(p => p.DownloadActivationType);
             this.Ignore(p => p.GiftCardType);
+            this.Ignore(p => p.FirstCostCurrencyType);
             this.Ignore(p => p.LowStockActivity);
             this.Ignore(p => p.ManageInventoryMethod);
             this.Ignore(p => p.RecurringCyclePeriod);

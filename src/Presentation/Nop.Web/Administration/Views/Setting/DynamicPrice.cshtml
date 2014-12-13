@@ -1,0 +1,43 @@
+﻿@model DynamicPriceSettingsModel
+@{
+    //page title
+    ViewBag.Title = T("Admin.Configuration.Settings.DynamicPrice").Text;
+}
+@using (Html.BeginForm())
+{
+    <div class="section-header">
+        <div class="title">
+            <img src="@Url.Content("~/Administration/Content/images/ico-configuration.png")" alt="" />
+            @T("Admin.Configuration.Settings.DynamicPrice")
+        </div>
+        <div class="options">
+            <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+            <a href="@Url.Action("Recalculate", "DynamicPrice")" class="k-button">@T("Admin.Configuration.Settings.DynamicPrice.Recalculate")</a>
+        </div>
+    </div>
+    
+    @Html.Action("StoreScopeConfiguration", "Setting")
+    @Html.ValidationSummary(false)
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.EuroRate_OverrideForStore, model => model.EuroRate, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.EuroRate):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.EuroRate)
+                @Html.ValidationMessageFor(model => model.EuroRate)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.DollarRate_OverrideForStore, model => model.DollarRate, Model.ActiveStoreScopeConfiguration)
+                @Html.NopLabelFor(model => model.DollarRate):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.DollarRate)
+                @Html.ValidationMessageFor(model => model.DollarRate)
+            </td>
+        </tr>
+    </table>
+}

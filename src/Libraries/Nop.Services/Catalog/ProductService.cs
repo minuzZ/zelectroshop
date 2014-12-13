@@ -11,6 +11,7 @@ using Nop.Core.Domain.Localization;
 using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Stores;
+using Nop.Core.Domain.DynamicPrice;
 using Nop.Data;
 using Nop.Services.Events;
 using Nop.Services.Localization;
@@ -66,6 +67,7 @@ namespace Nop.Services.Catalog
         private readonly IEventPublisher _eventPublisher;
         private readonly IAclService _aclService;
         private readonly IStoreMappingService _storeMappingService;
+        private readonly DynamicPriceSettings _dynamicPriceSettings;
 
         #endregion
 
@@ -123,7 +125,8 @@ namespace Nop.Services.Catalog
             CatalogSettings catalogSettings,
             IEventPublisher eventPublisher,
             IAclService aclService,
-            IStoreMappingService storeMappingService)
+            IStoreMappingService storeMappingService,
+            DynamicPriceSettings dynamicPriceSettings)
         {
             this._cacheManager = cacheManager;
             this._productRepository = productRepository;
@@ -150,6 +153,7 @@ namespace Nop.Services.Catalog
             this._eventPublisher = eventPublisher;
             this._aclService = aclService;
             this._storeMappingService = storeMappingService;
+            this._dynamicPriceSettings = dynamicPriceSettings;
         }
 
         #endregion
@@ -1654,6 +1658,52 @@ namespace Nop.Services.Catalog
         }
 
         #endregion
+
+        #region DynamicPrices
+
+        /// <summary>
+        /// Recalculates prices for product with first cost, exchange rate and desired profit
+        /// </summary>
+        public virtual void RecalculatePrices()
+        {
+            var query = from p in _productRepository.Table
+                        where !p.Deleted && p.FirstCost > 0 && p.DesiredProfit > 0
+                        select p;
+            var products = query.ToList();
+            foreach (var product in products)
+            {
+                RecalculatePrice(product);
+            }
+        }
+
+        /// <summary>
+        /// Recalculates prices based on first cost, exchange rate and desired 
+        /// profit with rounding to 5 multiple
+        /// </summary>
+        /// <param name="product">Product</param>
+        public virtual void RecalculatePrice(Product product)
+        {
+            const int rounding = 5;
+            decimal profit = product.FirstCost / 100M * product.DesiredProfit;
+            decimal rate = 0;
+            switch (product.FirstCostCurrencyType)
+            {
+                case FirstCostCurrencyType.Dollar:
+                    rate = _dynamicPriceSettings.DollarRate;
+                    break;
+                case FirstCostCurrencyType.Euro:
+                    rate = _dynamicPriceSettings.EuroRate;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("Unknown currency type");
+            }
+            decimal result = (product.FirstCost + profit) * rate;
+            result = result - (result % rounding);
+            product.Price = result;
+            UpdateProduct(product);
+        }
+
+        #endregion DynamicPrices
 
         #endregion
     }

@@ -39,6 +39,7 @@ using Nop.Core.Domain.Orders;
 using Nop.Core.Domain.Polls;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.SMS;
+using Nop.Core.Domain.DynamicPrice;
 using Nop.Core.Domain.Stores;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Topics;
@@ -833,6 +834,18 @@ namespace Nop.Admin
             return Mapper.Map(model, destination);
         }
 
+        public static DynamicPriceSettingsModel ToModel(this DynamicPriceSettings entity)
+        {
+            return Mapper.Map<DynamicPriceSettings, DynamicPriceSettingsModel>(entity);
+        }
+        public static DynamicPriceSettings ToEntity(this DynamicPriceSettingsModel model)
+        {
+            return Mapper.Map<DynamicPriceSettingsModel, DynamicPriceSettings>(model);
+        }
+        public static DynamicPriceSettings ToEntity(this DynamicPriceSettingsModel model, DynamicPriceSettings destination)
+        {
+            return Mapper.Map(model, destination);
+        }
 
         public static NewsSettingsModel ToModel(this NewsSettings entity)
         {

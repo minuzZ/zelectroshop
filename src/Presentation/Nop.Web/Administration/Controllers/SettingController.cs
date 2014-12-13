@@ -21,6 +21,7 @@ using Nop.Core.Domain.Security;
 using Nop.Core.Domain.Seo;
 using Nop.Core.Domain.Shipping;
 using Nop.Core.Domain.SMS;
+using Nop.Core.Domain.DynamicPrice;
 using Nop.Core.Domain.Tax;
 using Nop.Core.Domain.Vendors;
 using Nop.Services.Common;
@@ -359,6 +360,58 @@ namespace Nop.Admin.Controllers
             return RedirectToAction("SMS");
         }
 
+        public ActionResult DynamicPrice()
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageSettings))
+                return AccessDeniedView();
+
+            //load settings for a chosen store scope
+            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var dynamicPriceSettings = _settingService.LoadSetting<DynamicPriceSettings>(storeScope);
+            var model = dynamicPriceSettings.ToModel();
+            model.ActiveStoreScopeConfiguration = storeScope;
+            if (storeScope > 0)
+            {
+                model.EuroRate_OverrideForStore = _settingService.SettingExists(dynamicPriceSettings, x => x.EuroRate, storeScope);
+                model.DollarRate_OverrideForStore = _settingService.SettingExists(dynamicPriceSettings, x => x.DollarRate, storeScope);
+            }
+
+            return View(model);
+        }
+        [HttpPost]
+        public ActionResult DynamicPrice(DynamicPriceSettingsModel model)
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageSettings))
+                return AccessDeniedView();
+
+            //load settings for a chosen store scope
+            var storeScope = this.GetActiveStoreScopeConfiguration(_storeService, _workContext);
+            var dynamicPriceSettings = _settingService.LoadSetting<DynamicPriceSettings>(storeScope);
+            dynamicPriceSettings = model.ToEntity(dynamicPriceSettings);
+
+            /* We do not clear cache after each setting update.
+             * This behavior can increase performance because cached settings will not be cleared 
+             * and loaded from database after each update */
+
+            if (model.EuroRate_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(dynamicPriceSettings, x => x.EuroRate, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(dynamicPriceSettings, x => x.EuroRate, storeScope);
+
+            if (model.DollarRate_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(dynamicPriceSettings, x => x.DollarRate, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(dynamicPriceSettings, x => x.DollarRate, storeScope);
+
+            //now clear settings cache
+            _settingService.ClearCache();
+
+            //activity log
+            _customerActivityService.InsertActivity("EditSettings", _localizationService.GetResource("ActivityLog.EditSettings"));
+
+            SuccessNotification(_localizationService.GetResource("Admin.Configuration.Updated"));
+            return RedirectToAction("DynamicPrice");
+        }
 
         public ActionResult Forum()
         {

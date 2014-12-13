@@ -27,6 +27,27 @@ set @resources='
   <LocaleResource Name="ShoppingCart.NotInStock">
     <Value>Not in stock</Value>
   </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice">
+    <Value>Dynamic price</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.EuroRate">
+    <Value>Euro rate</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.EuroRate.Hint">
+    <Value>Set euro rate</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.DollarRate">
+    <Value>Dollar rate</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.DollarRate.Hint">
+    <Value>Set dollar rate</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.Recalculate">
+    <Value>Recalculate</Value>
+  </LocaleResource>
+  <LocaleResource Name="Admin.Configuration.Settings.DynamicPrice.Recalculated">
+    <Value>Prices were successfully recalculated!</Value>
+  </LocaleResource>
 </Language>
 '
 
@@ -150,4 +171,68 @@ BEGIN
 	INSERT [Setting] ([Name], [Value], [StoreId])
 	VALUES (N'smssettings.numberlength', N'', 0)
 END
+GO
+
+--new setting
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'dynamicpricesetting.eurorate')
+BEGIN
+	INSERT [Setting] ([Name], [Value], [StoreId])
+	VALUES (N'dynamicpricesetting.eurorate', N'', 0)
+END
+GO
+
+--new setting
+IF NOT EXISTS (SELECT 1 FROM [Setting] WHERE [name] = N'dynamicpricesetting.dollarrate')
+BEGIN
+	INSERT [Setting] ([Name], [Value], [StoreId])
+	VALUES (N'dynamicpricesetting.dollarrate', N'', 0)
+END
+GO
+
+--new column
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=object_id('[Product]') and NAME='FirstCost')
+BEGIN
+	ALTER TABLE [Product]
+	ADD [FirstCost] [decimal](18, 4) NULL
+END
+GO
+
+UPDATE [Product]
+SET [FirstCost] = 0
+WHERE [FirstCost] IS NULL
+GO
+
+ALTER TABLE [Product] ALTER COLUMN [FirstCost] [decimal](18, 4) NOT NULL
+GO
+
+--new column
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=object_id('[Product]') and NAME='FirstCostCurrencyTypeId')
+BEGIN
+	ALTER TABLE [Product]
+	ADD [FirstCostCurrencyTypeId] int NULL
+END
+GO
+
+UPDATE [Product]
+SET [FirstCostCurrencyTypeId] = 0
+WHERE [FirstCostCurrencyTypeId] IS NULL
+GO
+
+ALTER TABLE [Product] ALTER COLUMN [FirstCostCurrencyTypeId] int NOT NULL
+GO
+
+--new column
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=object_id('[Product]') and NAME='DesiredProfit')
+BEGIN
+	ALTER TABLE [Product]
+	ADD [DesiredProfit] int NULL
+END
+GO
+
+UPDATE [Product]
+SET [DesiredProfit] = 0
+WHERE [DesiredProfit] IS NULL
+GO
+
+ALTER TABLE [Product] ALTER COLUMN [DesiredProfit] int NOT NULL
 GO

@@ -502,6 +502,33 @@
     </tr>
     <tr>
         <td class="adminTitle">
+            @Html.NopLabelFor(model => model.FirstCost):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.FirstCost) [@Model.PrimaryStoreCurrencyCode]
+            @Html.ValidationMessageFor(model => model.FirstCost)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.FirstCostCurrencyTypeId):
+        </td>
+        <td class="adminData">
+            @Html.DropDownListFor(model => model.FirstCostCurrencyTypeId, ((FirstCostCurrencyType)Model.FirstCostCurrencyTypeId).ToSelectList())
+            @Html.ValidationMessageFor(model => model.FirstCostCurrencyTypeId)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
+            @Html.NopLabelFor(model => model.DesiredProfit):
+        </td>
+        <td class="adminData">
+            @Html.EditorFor(model => model.DesiredProfit) [%]
+            @Html.ValidationMessageFor(model => model.DesiredProfit)
+        </td>
+    </tr>
+    <tr>
+        <td class="adminTitle">
             @Html.NopLabelFor(model => model.OldPrice):
         </td>
         <td class="adminData">

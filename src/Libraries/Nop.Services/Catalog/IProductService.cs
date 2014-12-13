@@ -398,5 +398,20 @@ namespace Nop.Services.Catalog
         void DeleteProductReview(ProductReview productReview);
 
         #endregion
+
+        #region DynamicPrices
+
+        /// <summary>
+        /// Recalculates prices for product with first cost, exchange rate and desired profit
+        /// </summary>
+        void RecalculatePrices();
+
+        /// <summary>
+        /// Recalculates prices based on first cost, exchange rate and desired profit
+        /// </summary>
+        /// <param name="product">Product</param>
+        void RecalculatePrice(Product product); 
+
+        #endregion DynamicPrices
     }
 }

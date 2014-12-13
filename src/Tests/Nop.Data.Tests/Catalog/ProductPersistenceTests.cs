@@ -80,6 +80,9 @@ namespace Nop.Data.Tests.Catalog
                 PreOrderAvailabilityStartDateTimeUtc = new DateTime(2010, 01, 01),
                 CallForPrice = true,
                 Price = 21.1M,
+                FirstCost = 29.7M,
+                FirstCostCurrencyTypeId = 1,
+                DesiredProfit = 50,
                 OldPrice = 22.1M,
                 ProductCost = 23.1M,
                 SpecialPrice = 32.1M,
@@ -173,6 +176,9 @@ namespace Nop.Data.Tests.Catalog
             fromDb.PreOrderAvailabilityStartDateTimeUtc.ShouldEqual(new DateTime(2010, 01, 01));
             fromDb.CallForPrice.ShouldEqual(true);
             fromDb.Price.ShouldEqual(21.1M);
+            fromDb.FirstCost.ShouldEqual(29.7M);
+            fromDb.FirstCostCurrencyTypeId.ShouldEqual(1);
+            fromDb.DesiredProfit.ShouldEqual(50);
             fromDb.OldPrice.ShouldEqual(22.1M);
             fromDb.ProductCost.ShouldEqual(23.1M);
             fromDb.SpecialPrice.ShouldEqual(32.1M);

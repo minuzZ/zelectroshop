@@ -86,11 +86,13 @@
     <Compile Include="ComponentModel\WriteLockDisposable.cs" />
     <Compile Include="Domain\Catalog\AttributeValueType.cs" />
     <Compile Include="Domain\Catalog\ProductType.cs" />
+    <Compile Include="Domain\Catalog\FirstCostCurrencyType.cs" />
     <Compile Include="Domain\Common\SearchTermReportLine.cs" />
     <Compile Include="Domain\Common\SearchTerm.cs" />
     <Compile Include="Domain\Customers\CustomerAttribute.cs" />
     <Compile Include="Domain\Customers\CustomerAttributeValue.cs" />
     <Compile Include="Domain\Customers\CustomerLoginResults.cs" />
+    <Compile Include="Domain\DynamicPrices\DynamicPriceSettings.cs" />
     <Compile Include="Domain\Orders\OrderByCountryReportLine.cs" />
     <Compile Include="Domain\Seo\WwwRequirement.cs" />
     <Compile Include="Domain\Shipping\Events.cs" />
