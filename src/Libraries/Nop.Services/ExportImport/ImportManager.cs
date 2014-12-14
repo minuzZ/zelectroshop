@@ -180,6 +180,7 @@ namespace Nop.Services.ExportImport
                     "FirstCost",
                     "FirstCostCurrencyTypeId",
                     "DesiredProfit",
+                    "DollarPrice",
                     "OldPrice",
                     "ProductCost",
                     "SpecialPrice",
@@ -282,6 +283,7 @@ namespace Nop.Services.ExportImport
                     decimal firstCost = Convert.ToDecimal(worksheet.Cells[iRow, GetColumnIndex(properties, "FirstCost")].Value);
                     int firstCostCurrencyTypeId = Convert.ToInt32(worksheet.Cells[iRow, GetColumnIndex(properties, "FirstCostCurrencyTypeId")].Value);
                     int desiredProfit = Convert.ToInt32(worksheet.Cells[iRow, GetColumnIndex(properties, "DesiredProfit")].Value);
+                    decimal dollarPrice = Convert.ToDecimal(worksheet.Cells[iRow, GetColumnIndex(properties, "DollarPrice")].Value);
                     decimal oldPrice = Convert.ToDecimal(worksheet.Cells[iRow, GetColumnIndex(properties, "OldPrice")].Value);
                     decimal productCost = Convert.ToDecimal(worksheet.Cells[iRow, GetColumnIndex(properties, "ProductCost")].Value);
                     decimal? specialPrice = null;
@@ -383,6 +385,7 @@ namespace Nop.Services.ExportImport
                     product.FirstCost = firstCost;
                     product.FirstCostCurrencyTypeId = firstCostCurrencyTypeId;
                     product.DesiredProfit = desiredProfit;
+                    product.DollarPrice = dollarPrice;
                     product.OldPrice = oldPrice;
                     product.ProductCost = productCost;
                     product.SpecialPrice = specialPrice;

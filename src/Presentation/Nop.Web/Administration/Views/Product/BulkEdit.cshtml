@@ -120,9 +120,12 @@
                                         fields: {
                                             Name: { editable: false, type: "string" },
                                             ProductId: { editable: false, type: "number" },
-                                            Sku: { editable: true, type: "string" },
+                                            AdminComment: { editable: true, type: "string" },
+                                            FirstCost: { editable: true, type: "number" },
+                                            CurrencyId: { editable: true, type: "number" },
+                                            DesiredProfit: { editable: true, type: "number" },
                                             Price: { editable: true, type: "number" },
-                                            OldPrice: { editable: true, type: "number" },
+                                            DollarPrice: { editable: true, type: "number" },
                                             ManageInventoryMethod: { editable: false, type: "string" },
                                             StockQuantity: { editable: true, type: "number" },
                                             Published: { editable: true, type: "boolean" },
@@ -168,8 +171,34 @@
                                     width: 100,
                                     template: '<a href="@Url.Content("~/Admin/Product/Edit/")#=Id#">@T("Admin.Common.View")</a>'
                                 },{
-                                    field: "Sku",
-                                    title: "@T("Admin.Catalog.BulkEdit.Fields.Sku")",
+                                    field: "AdminComment",
+                                    title: "@T("Admin.Catalog.BulkEdit.Fields.AdminComment")",
+                                    width: 150
+                                }, {
+                                    field: "FirstCost",
+                                    title: "@T("Admin.Catalog.BulkEdit.Fields.FirstCost")",
+                                    width: 150,
+                                    editor: function (container, options) {
+                                        $('<input name="' + options.field + '"/>')
+                                            .appendTo(container)
+                                            .kendoNumericTextBox({
+                                                format: "{0:n4}",
+                                                decimals: 4
+                                            });
+                                    }
+                                }, {
+                                    field: "CurrencyId",
+                                    title: "@T("Admin.Catalog.BulkEdit.Fields.Currency")",
+                                    width: 150,
+                                    values: [
+                                        { value:0, text:"Euro" },
+                                        { value:1, text:"Dollar" }
+                                    ]
+                                }, {
+                                    field: "DesiredProfit",
+                                    title: "@T("Admin.Catalog.BulkEdit.Fields.DesiredProfit")",
+                                    //integer format
+                                    format: "{0:0}",
                                     width: 150
                                 }, {
                                     field: "Price",
@@ -184,8 +213,8 @@
                                             });
                                     }
                                 }, {
-                                    field: "OldPrice",
-                                    title: "@T("Admin.Catalog.BulkEdit.Fields.OldPrice")",
+                                    field: "DollarPrice",
+                                    title: "@T("Admin.Catalog.BulkEdit.Fields.DollarPrice")",
                                     width: 150,
                                     editor: function (container, options) {
                                         $('<input name="' + options.field + '"/>')
@@ -215,7 +244,7 @@
                                     width: 100
                                 }
                             ]
-                        } );
+                        });
                     });
                 </script>
 

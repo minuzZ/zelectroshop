@@ -236,3 +236,19 @@ GO
 
 ALTER TABLE [Product] ALTER COLUMN [DesiredProfit] int NOT NULL
 GO
+
+--new column
+IF NOT EXISTS (SELECT 1 FROM sys.columns WHERE object_id=object_id('[Product]') and NAME='DollarPrice')
+BEGIN
+	ALTER TABLE [Product]
+	ADD [DollarPrice] [decimal](18, 4) NULL
+END
+GO
+
+UPDATE [Product]
+SET [DollarPrice] = 0
+WHERE [DollarPrice] IS NULL
+GO
+
+ALTER TABLE [Product] ALTER COLUMN [DollarPrice] [decimal](18, 4) NOT NULL
+GO

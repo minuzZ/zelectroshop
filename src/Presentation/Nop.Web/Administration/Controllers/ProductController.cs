@@ -2607,9 +2607,12 @@ namespace Nop.Admin.Controllers
                 {
                     Id = x.Id,
                     Name = x.Name,
-                    Sku = x.Sku,
-                    OldPrice = x.OldPrice,
+                    AdminComment = x.AdminComment,
+                    FirstCost = x.FirstCost,
+                    CurrencyId = x.FirstCostCurrencyTypeId,
+                    DesiredProfit = x.DesiredProfit,
                     Price = x.Price,
+                    DollarPrice = x.DollarPrice,
                     ManageInventoryMethod = x.ManageInventoryMethod.GetLocalizedEnum(_localizationService, _workContext.WorkingLanguage.Id),
                     StockQuantity = x.StockQuantity,
                     Published = x.Published
@@ -2639,10 +2642,13 @@ namespace Nop.Admin.Controllers
                         //a vendor should have access only to his products
                         if (_workContext.CurrentVendor != null && product.VendorId != _workContext.CurrentVendor.Id)
                             continue;
-
-                        product.Sku = pModel.Sku;
+                        
+                        product.AdminComment = pModel.AdminComment;
+                        product.FirstCost = pModel.FirstCost;
+                        product.FirstCostCurrencyTypeId = pModel.CurrencyId;
+                        product.DesiredProfit = pModel.DesiredProfit;
                         product.Price = pModel.Price;
-                        product.OldPrice = pModel.OldPrice;
+                        product.DollarPrice = pModel.DollarPrice;
                         product.StockQuantity = pModel.StockQuantity;
                         product.Published = pModel.Published;
                         _productService.UpdateProduct(product);

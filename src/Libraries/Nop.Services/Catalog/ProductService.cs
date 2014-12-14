@@ -1703,6 +1703,34 @@ namespace Nop.Services.Catalog
             UpdateProduct(product);
         }
 
+        /// <summary>
+        /// Calculates dollar prices for all products based on exchange rate and price
+        /// </summary>
+        public virtual void CalculateDollarPrices()
+        {
+            var query = from p in _productRepository.Table
+                        where !p.Deleted && p.Price > 0
+                        select p;
+            var products = query.ToList();
+            foreach (var product in products)
+            {
+                CalculateDollarPrice(product);
+            }
+        }
+
+        /// <summary>
+        /// Calculates dollar price based on exchange rate for product
+        /// </summary>
+        /// <param name="product">Product</param>
+        public virtual void CalculateDollarPrice(Product product)
+        {
+            if (_dynamicPriceSettings.DollarRate > 0)
+            {
+                product.DollarPrice = product.Price / _dynamicPriceSettings.DollarRate;
+                UpdateProduct(product);
+            }
+        }
+
         #endregion DynamicPrices
 
         #endregion

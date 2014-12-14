@@ -39,5 +39,17 @@ namespace Nop.Admin.Controllers
 
             return RedirectToAction("DynamicPrice", "Setting");
         }
+
+        public ActionResult CalculateDollarPrice()
+        {
+            if (!_permissionService.Authorize(StandardPermissionProvider.ManageProducts))
+                return AccessDeniedView();
+
+            _productService.CalculateDollarPrices();
+
+            SuccessNotification(_localizationService.GetResource("Admin.Configuration.Settings.DynamicPrice.DollarPriceSuccess"));
+
+            return RedirectToAction("DynamicPrice", "Setting");
+        }
 	}
 }

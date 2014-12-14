@@ -195,6 +195,7 @@ namespace Nop.Services.Catalog
                 CallForPrice = product.CallForPrice,
                 Price = product.Price,
                 FirstCost = product.FirstCost,
+                DollarPrice = product.DollarPrice,
                 DesiredProfit = product.DesiredProfit,
                 OldPrice = product.OldPrice,
                 ProductCost = product.ProductCost,

@@ -83,6 +83,7 @@ namespace Nop.Data.Tests.Catalog
                 FirstCost = 29.7M,
                 FirstCostCurrencyTypeId = 1,
                 DesiredProfit = 50,
+                DollarPrice = 99.9999M,
                 OldPrice = 22.1M,
                 ProductCost = 23.1M,
                 SpecialPrice = 32.1M,
@@ -179,6 +180,7 @@ namespace Nop.Data.Tests.Catalog
             fromDb.FirstCost.ShouldEqual(29.7M);
             fromDb.FirstCostCurrencyTypeId.ShouldEqual(1);
             fromDb.DesiredProfit.ShouldEqual(50);
+            fromDb.DollarPrice.ShouldEqual(99.9999M);
             fromDb.OldPrice.ShouldEqual(22.1M);
             fromDb.ProductCost.ShouldEqual(23.1M);
             fromDb.SpecialPrice.ShouldEqual(32.1M);

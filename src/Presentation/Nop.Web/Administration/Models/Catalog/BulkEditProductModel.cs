@@ -10,15 +10,23 @@ namespace Nop.Admin.Models.Catalog
         [AllowHtml]
         public string Name { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.SKU")]
+        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.AdminComment")]
         [AllowHtml]
-        public string Sku { get; set; }
+        public string AdminComment { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.FirstCost")]
+        public decimal FirstCost { get; set; }
+
+        public int CurrencyId { get; set; }
+
+        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.DesiredProfit")]
+        public int DesiredProfit { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.Price")]
         public decimal Price { get; set; }
 
-        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.OldPrice")]
-        public decimal OldPrice { get; set; }
+        [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.DollarPrice")]
+        public decimal DollarPrice { get; set; }
 
         [NopResourceDisplayName("Admin.Catalog.BulkEdit.Fields.ManageInventoryMethod")]
         public string ManageInventoryMethod { get; set; }
