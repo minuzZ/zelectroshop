@@ -73,18 +73,10 @@
                     <div class="price">
                         @Model.ProductPrice.Price
                     </div>
-                    <div class="qtyblock">
-                        <input type='button' value='-' class='qtyminus button' field='quantity' />
-                        <input type='text' name='quantity' value='0' class='qty' />
-                        <input type='button' value='+' class='qtyplus button' field='quantity' />
-                    </div>
-                    @if (Model.AddToCart.StockQuantity == 0)
-                    {
-                        <input type="button" value="@T("ShoppingCart.NotInStock")" class="button notinstock" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false; " />
-                    }
-                    else
-                    {
-                        <input type="button" value="@T("ShoppingCart.AddToCart")" class="button" onclick="AjaxCart.addproducttocart_catalog('@addtocartlink');return false; " />
+                    @{
+                        var dataDictAddToCart = new ViewDataDictionary();
+                        dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
+                        @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
                     }
                     <div class="rating">
                         @for (var i = 0; i < avgRating; i++)
@@ -135,27 +127,3 @@
 </div>
 @Html.Action("ProductsAlsoPurchased", "Product", new {productId = Model.Id})
 @Html.Action("RelatedProducts", "Product", new {productId = Model.Id})
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.qtyplus').click(function (e) {
-            e.preventDefault();
-            fieldName = $(this).attr('field');
-            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
-            if (!isNaN(currentVal)) {
-                $('input[name=' + fieldName + ']').val(currentVal + 1);
-            } else {
-                $('input[name=' + fieldName + ']').val(0);
-            }
-        });
-        $(".qtyminus").click(function (e) {
-            e.preventDefault();
-            fieldName = $(this).attr('field');
-            var currentVal = parseInt($('input[name=' + fieldName + ']').val());
-            if (!isNaN(currentVal) && currentVal > 0) {
-                $('input[name=' + fieldName + ']').val(currentVal - 1);
-            } else {
-                $('input[name=' + fieldName + ']').val(0);
-            }
-        });
-    });
-</script>

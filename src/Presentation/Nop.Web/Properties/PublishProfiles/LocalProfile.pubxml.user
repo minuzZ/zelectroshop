@@ -115,7 +115,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Administration/sitemap.config">
-      <publishTime>09/22/2014 19:02:18</publishTime>
+      <publishTime>12/13/2014 20:29:40</publishTime>
     </File>
     <File Include="Administration/Views/ActivityLog/ListLogs.cshtml">
       <publishTime>09/22/2014 19:02:16</publishTime>
@@ -586,7 +586,7 @@
       <publishTime>09/22/2014 19:02:17</publishTime>
     </File>
     <File Include="Administration/Views/Product/BulkEdit.cshtml">
-      <publishTime>09/22/2014 19:02:17</publishTime>
+      <publishTime>12/14/2014 14:21:37</publishTime>
     </File>
     <File Include="Administration/Views/Product/Create.cshtml">
       <publishTime>09/22/2014 19:02:17</publishTime>
@@ -643,7 +643,7 @@
       <publishTime>09/22/2014 19:02:17</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.Info.cshtml">
-      <publishTime>09/22/2014 19:02:17</publishTime>
+      <publishTime>12/13/2014 20:44:57</publishTime>
     </File>
     <File Include="Administration/Views/Product/_CreateOrUpdate.Manufacturers.cshtml">
       <publishTime>09/22/2014 19:02:17</publishTime>
@@ -739,7 +739,7 @@
       <publishTime>09/22/2014 19:02:17</publishTime>
     </File>
     <File Include="Administration/Views/Setting/AllSettings.cshtml">
-      <publishTime>09/22/2014 19:02:17</publishTime>
+      <publishTime>12/14/2014 14:12:42</publishTime>
     </File>
     <File Include="Administration/Views/Setting/Blog.cshtml">
       <publishTime>09/22/2014 19:02:17</publishTime>
@@ -749,6 +749,9 @@
     </File>
     <File Include="Administration/Views/Setting/CustomerUser.cshtml">
       <publishTime>09/22/2014 19:02:17</publishTime>
+    </File>
+    <File Include="Administration/Views/Setting/DynamicPrice.cshtml">
+      <publishTime>12/14/2014 13:33:51</publishTime>
     </File>
     <File Include="Administration/Views/Setting/Forum.cshtml">
       <publishTime>09/22/2014 19:02:17</publishTime>
@@ -1176,6 +1179,9 @@
     <File Include="bin/ImageResizer.dll">
       <publishTime>09/22/2014 19:03:51</publishTime>
     </File>
+    <File Include="bin/ImageResizer.Plugins.PrettyGifs.dll">
+      <publishTime>09/22/2014 19:03:51</publishTime>
+    </File>
     <File Include="bin/it/FluentValidation.resources.dll">
       <publishTime>09/22/2014 19:03:47</publishTime>
     </File>
@@ -1204,25 +1210,25 @@
       <publishTime>09/22/2014 19:03:48</publishTime>
     </File>
     <File Include="bin/Nop.Admin.dll">
-      <publishTime>12/09/2014 01:07:50</publishTime>
+      <publishTime>12/26/2014 00:39:40</publishTime>
     </File>
     <File Include="bin/Nop.Core.dll">
-      <publishTime>12/09/2014 01:07:29</publishTime>
+      <publishTime>12/26/2014 00:39:16</publishTime>
     </File>
     <File Include="bin/Nop.Data.dll">
-      <publishTime>12/09/2014 01:07:31</publishTime>
+      <publishTime>12/26/2014 00:39:19</publishTime>
     </File>
     <File Include="bin/Nop.Services.dll">
-      <publishTime>12/09/2014 01:07:35</publishTime>
+      <publishTime>12/26/2014 00:39:26</publishTime>
     </File>
     <File Include="bin/Nop.Services.XmlSerializers.dll">
-      <publishTime>12/09/2014 01:07:38</publishTime>
+      <publishTime>12/26/2014 00:39:27</publishTime>
     </File>
     <File Include="bin/Nop.Web.dll">
-      <publishTime>12/09/2014 01:07:45</publishTime>
+      <publishTime>12/26/2014 00:39:34</publishTime>
     </File>
     <File Include="bin/Nop.Web.Framework.dll">
-      <publishTime>12/09/2014 01:07:40</publishTime>
+      <publishTime>12/26/2014 00:39:29</publishTime>
     </File>
     <File Include="bin/PerlRegex.dll">
       <publishTime>09/22/2014 19:04:19</publishTime>
@@ -1261,7 +1267,7 @@
       <publishTime>09/22/2014 19:04:01</publishTime>
     </File>
     <File Include="bin/System.Web.Http.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:04:00</publishTime>
     </File>
     <File Include="bin/System.Web.Http.WebHost.dll">
       <publishTime>09/22/2014 19:04:01</publishTime>
@@ -1289,6 +1295,9 @@
     </File>
     <File Include="bin/UserAgentStringLibrary.dll">
       <publishTime>09/22/2014 19:04:19</publishTime>
+    </File>
+    <File Include="bin/WebActivator.dll">
+      <publishTime>09/22/2014 19:04:16</publishTime>
     </File>
     <File Include="bin/WebGrease.dll">
       <publishTime>09/22/2014 19:04:17</publishTime>
@@ -4150,7 +4159,7 @@
       <publishTime>09/22/2014 19:02:12</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.CustomerRoles/Nop.Plugin.DiscountRules.CustomerRoles.dll">
-      <publishTime>12/09/2014 01:07:56</publishTime>
+      <publishTime>12/26/2014 00:39:40</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.CustomerRoles/Nop.Plugin.DiscountRules.CustomerRoles.dll.config">
       <publishTime>09/22/2014 19:02:12</publishTime>
@@ -4168,7 +4177,7 @@
       <publishTime>09/22/2014 19:02:12</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HadSpentAmount/Nop.Plugin.DiscountRules.HadSpentAmount.dll">
-      <publishTime>12/09/2014 01:08:03</publishTime>
+      <publishTime>12/26/2014 00:39:44</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HadSpentAmount/Nop.Plugin.DiscountRules.HadSpentAmount.dll.config">
       <publishTime>09/22/2014 19:02:12</publishTime>
@@ -4186,7 +4195,7 @@
       <publishTime>09/22/2014 19:02:12</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasAllProducts/Nop.Plugin.DiscountRules.HasAllProducts.dll">
-      <publishTime>12/09/2014 01:08:07</publishTime>
+      <publishTime>12/26/2014 00:39:47</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasAllProducts/Nop.Plugin.DiscountRules.HasAllProducts.dll.config">
       <publishTime>09/22/2014 19:02:12</publishTime>
@@ -4204,7 +4213,7 @@
       <publishTime>09/22/2014 19:02:13</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasOneProduct/Nop.Plugin.DiscountRules.HasOneProduct.dll">
-      <publishTime>12/09/2014 01:08:08</publishTime>
+      <publishTime>12/26/2014 00:39:48</publishTime>
     </File>
     <File Include="Plugins/DiscountRules.HasOneProduct/Nop.Plugin.DiscountRules.HasOneProduct.dll.config">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4222,7 +4231,7 @@
       <publishTime>09/22/2014 19:02:13</publishTime>
     </File>
     <File Include="Plugins/ExchangeRate.McExchange/Nop.Plugin.ExchangeRate.McExchange.dll">
-      <publishTime>12/09/2014 01:08:19</publishTime>
+      <publishTime>12/26/2014 00:40:02</publishTime>
     </File>
     <File Include="Plugins/ExchangeRate.McExchange/Nop.Plugin.ExchangeRate.McExchange.dll.config">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4282,10 +4291,10 @@
       <publishTime>09/22/2014 19:03:30</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Nop.Plugin.ExternalAuth.Facebook.dll">
-      <publishTime>12/09/2014 01:08:26</publishTime>
+      <publishTime>12/26/2014 00:40:08</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Nop.Plugin.ExternalAuth.Facebook.dll.config">
-      <publishTime>12/09/2014 01:08:24</publishTime>
+      <publishTime>12/26/2014 00:40:06</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.Facebook/Org.Mentalis.Security.Cryptography.dll">
       <publishTime>09/22/2014 19:03:30</publishTime>
@@ -4600,10 +4609,10 @@
       <publishTime>09/22/2014 19:03:30</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.OpenId/Nop.Plugin.ExternalAuth.OpenId.dll">
-      <publishTime>12/09/2014 01:08:23</publishTime>
+      <publishTime>12/26/2014 00:40:07</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.OpenId/Nop.Plugin.ExternalAuth.OpenId.dll.config">
-      <publishTime>12/09/2014 01:08:22</publishTime>
+      <publishTime>12/26/2014 00:40:05</publishTime>
     </File>
     <File Include="Plugins/ExternalAuth.OpenId/Org.Mentalis.Security.Cryptography.dll">
       <publishTime>09/22/2014 19:03:30</publishTime>
@@ -4639,7 +4648,7 @@
       <publishTime>09/22/2014 19:02:13</publishTime>
     </File>
     <File Include="Plugins/Feed.Froogle/Nop.Plugin.Feed.Froogle.dll">
-      <publishTime>12/09/2014 01:08:06</publishTime>
+      <publishTime>12/26/2014 00:39:46</publishTime>
     </File>
     <File Include="Plugins/Feed.Froogle/Nop.Plugin.Feed.Froogle.dll.config">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4678,7 +4687,7 @@
       <publishTime>09/22/2014 19:02:13</publishTime>
     </File>
     <File Include="Plugins/Misc.FacebookShop/Nop.Plugin.Misc.FacebookShop.dll">
-      <publishTime>12/09/2014 01:08:27</publishTime>
+      <publishTime>12/26/2014 00:40:10</publishTime>
     </File>
     <File Include="Plugins/Misc.FacebookShop/Nop.Plugin.Misc.FacebookShop.dll.config">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4729,7 +4738,7 @@
       <publishTime>09/22/2014 19:02:13</publishTime>
     </File>
     <File Include="Plugins/Misc.WebServices/Nop.Plugin.Misc.WebServices.dll">
-      <publishTime>12/09/2014 01:08:25</publishTime>
+      <publishTime>12/26/2014 00:40:09</publishTime>
     </File>
     <File Include="Plugins/Misc.WebServices/Nop.Plugin.Misc.WebServices.dll.config">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4753,13 +4762,13 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.AuthorizeNet/Nop.Plugin.Payments.AuthorizeNet.dll">
-      <publishTime>12/09/2014 01:08:17</publishTime>
+      <publishTime>12/26/2014 00:39:59</publishTime>
     </File>
     <File Include="Plugins/Payments.AuthorizeNet/Nop.Plugin.Payments.AuthorizeNet.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.AuthorizeNet/Nop.Plugin.Payments.AuthorizeNet.XmlSerializers.dll">
-      <publishTime>12/09/2014 01:08:18</publishTime>
+      <publishTime>12/26/2014 00:40:00</publishTime>
     </File>
     <File Include="Plugins/Payments.AuthorizeNet/Views/PaymentAuthorizeNet/Configure.cshtml">
       <publishTime>09/22/2014 19:02:13</publishTime>
@@ -4780,7 +4789,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.CashOnDelivery/Nop.Plugin.Payments.CashOnDelivery.dll">
-      <publishTime>12/09/2014 01:08:15</publishTime>
+      <publishTime>12/26/2014 00:39:57</publishTime>
     </File>
     <File Include="Plugins/Payments.CashOnDelivery/Nop.Plugin.Payments.CashOnDelivery.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4801,7 +4810,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Nop.Plugin.Payments.CheckMoneyOrder.dll">
-      <publishTime>12/09/2014 01:08:15</publishTime>
+      <publishTime>12/26/2014 00:39:57</publishTime>
     </File>
     <File Include="Plugins/Payments.CheckMoneyOrder/Nop.Plugin.Payments.CheckMoneyOrder.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4822,7 +4831,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Nop.Plugin.Payments.Manual.dll">
-      <publishTime>12/09/2014 01:08:04</publishTime>
+      <publishTime>12/26/2014 00:39:42</publishTime>
     </File>
     <File Include="Plugins/Payments.Manual/Nop.Plugin.Payments.Manual.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4843,13 +4852,13 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.dll">
-      <publishTime>12/09/2014 01:08:20</publishTime>
+      <publishTime>12/26/2014 00:40:02</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Nop.Plugin.Payments.PayPalDirect.XmlSerializers.dll">
-      <publishTime>12/09/2014 01:08:23</publishTime>
+      <publishTime>12/26/2014 00:40:05</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalDirect/Views/PaymentPayPalDirect/Configure.cshtml">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4867,7 +4876,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Nop.Plugin.Payments.PayPalStandard.dll">
-      <publishTime>12/09/2014 01:08:18</publishTime>
+      <publishTime>12/26/2014 00:40:00</publishTime>
     </File>
     <File Include="Plugins/Payments.PayPalStandard/Nop.Plugin.Payments.PayPalStandard.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4888,7 +4897,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Nop.Plugin.Payments.PurchaseOrder.dll">
-      <publishTime>12/09/2014 01:08:16</publishTime>
+      <publishTime>12/26/2014 00:39:58</publishTime>
     </File>
     <File Include="Plugins/Payments.PurchaseOrder/Nop.Plugin.Payments.PurchaseOrder.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4909,7 +4918,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Shipping.AustraliaPost/Nop.Plugin.Shipping.AustraliaPost.dll">
-      <publishTime>12/09/2014 01:07:54</publishTime>
+      <publishTime>12/26/2014 00:39:37</publishTime>
     </File>
     <File Include="Plugins/Shipping.AustraliaPost/Nop.Plugin.Shipping.AustraliaPost.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4927,7 +4936,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Shipping.ByWeight/Nop.Plugin.Shipping.ByWeight.dll">
-      <publishTime>12/09/2014 01:08:13</publishTime>
+      <publishTime>12/26/2014 00:39:56</publishTime>
     </File>
     <File Include="Plugins/Shipping.ByWeight/Nop.Plugin.Shipping.ByWeight.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4954,7 +4963,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/Shipping.CanadaPost/Nop.Plugin.Shipping.CanadaPost.dll">
-      <publishTime>12/09/2014 01:08:09</publishTime>
+      <publishTime>12/26/2014 00:39:49</publishTime>
     </File>
     <File Include="Plugins/Shipping.CanadaPost/Nop.Plugin.Shipping.CanadaPost.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -4972,13 +4981,13 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.dll">
-      <publishTime>12/09/2014 01:08:12</publishTime>
+      <publishTime>12/26/2014 00:39:52</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Nop.Plugin.Shipping.Fedex.XmlSerializers.dll">
-      <publishTime>12/09/2014 01:08:14</publishTime>
+      <publishTime>12/26/2014 00:39:54</publishTime>
     </File>
     <File Include="Plugins/Shipping.Fedex/Views/ShippingFedex/Configure.cshtml">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -4993,7 +5002,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedRateShipping/Nop.Plugin.Shipping.FixedRateShipping.dll">
-      <publishTime>12/09/2014 01:07:58</publishTime>
+      <publishTime>12/26/2014 00:39:38</publishTime>
     </File>
     <File Include="Plugins/Shipping.FixedRateShipping/Nop.Plugin.Shipping.FixedRateShipping.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5011,13 +5020,13 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.dll">
-      <publishTime>12/09/2014 01:08:11</publishTime>
+      <publishTime>12/26/2014 00:39:50</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Nop.Plugin.Shipping.UPS.XmlSerializers.dll">
-      <publishTime>12/09/2014 01:08:12</publishTime>
+      <publishTime>12/26/2014 00:39:51</publishTime>
     </File>
     <File Include="Plugins/Shipping.UPS/Views/ShippingUPS/Configure.cshtml">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5032,7 +5041,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Shipping.USPS/Nop.Plugin.Shipping.USPS.dll">
-      <publishTime>12/09/2014 01:08:10</publishTime>
+      <publishTime>12/26/2014 00:39:49</publishTime>
     </File>
     <File Include="Plugins/Shipping.USPS/Nop.Plugin.Shipping.USPS.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5050,7 +5059,7 @@
       <publishTime>09/22/2014 19:02:14</publishTime>
     </File>
     <File Include="Plugins/SMS.Verizon/Nop.Plugin.SMS.Verizon.dll">
-      <publishTime>12/09/2014 01:08:00</publishTime>
+      <publishTime>12/26/2014 00:39:41</publishTime>
     </File>
     <File Include="Plugins/SMS.Verizon/Nop.Plugin.SMS.Verizon.dll.config">
       <publishTime>09/22/2014 19:02:14</publishTime>
@@ -5068,7 +5077,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Tax.CountryStateZip/Nop.Plugin.Tax.CountryStateZip.dll">
-      <publishTime>12/09/2014 01:08:05</publishTime>
+      <publishTime>12/26/2014 00:39:46</publishTime>
     </File>
     <File Include="Plugins/Tax.CountryStateZip/Nop.Plugin.Tax.CountryStateZip.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5086,7 +5095,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Tax.FixedRate/Nop.Plugin.Tax.FixedRate.dll">
-      <publishTime>12/09/2014 01:07:52</publishTime>
+      <publishTime>12/26/2014 00:39:36</publishTime>
     </File>
     <File Include="Plugins/Tax.FixedRate/Nop.Plugin.Tax.FixedRate.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5104,7 +5113,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Widgets.GoogleAnalytics/Nop.Plugin.Widgets.GoogleAnalytics.dll">
-      <publishTime>12/09/2014 01:08:21</publishTime>
+      <publishTime>12/26/2014 00:40:04</publishTime>
     </File>
     <File Include="Plugins/Widgets.GoogleAnalytics/Nop.Plugin.Widgets.GoogleAnalytics.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5182,7 +5191,7 @@
       <publishTime>09/22/2014 19:02:15</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Nop.Plugin.Widgets.NivoSlider.dll">
-      <publishTime>12/09/2014 01:08:27</publishTime>
+      <publishTime>12/26/2014 00:40:09</publishTime>
     </File>
     <File Include="Plugins/Widgets.NivoSlider/Nop.Plugin.Widgets.NivoSlider.dll.config">
       <publishTime>09/22/2014 19:02:15</publishTime>
@@ -5212,7 +5221,7 @@
       <publishTime>09/22/2014 19:03:21</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Content/vk-community.css">
-      <publishTime>12/09/2014 00:50:51</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/da/FluentValidation.resources.dll">
       <publishTime>09/22/2014 19:03:46</publishTime>
@@ -5221,7 +5230,7 @@
       <publishTime>09/22/2014 19:03:46</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Description.txt">
-      <publishTime>11/16/2014 22:43:19</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/EntityFramework.dll">
       <publishTime>09/22/2014 19:03:40</publishTime>
@@ -5290,22 +5299,22 @@
       <publishTime>09/22/2014 19:03:48</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Core.dll">
-      <publishTime>02/12/2014 00:54:42</publishTime>
+      <publishTime>12/14/2014 13:37:46</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Data.dll">
-      <publishTime>12/02/2014 00:54:49</publishTime>
+      <publishTime>12/14/2014 13:37:51</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Plugin.Widgets.VkCommunity.dll">
-      <publishTime>12/09/2014 01:07:30</publishTime>
+      <publishTime>12/26/2014 00:39:16</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Plugin.Widgets.VkCommunity.dll.config">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Services.dll">
-      <publishTime>12/02/2014 00:54:55</publishTime>
+      <publishTime>12/14/2014 13:53:20</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Nop.Web.Framework.dll">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/14/2014 13:53:25</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/PerlRegex.dll">
       <publishTime>09/22/2014 19:04:19</publishTime>
@@ -5374,43 +5383,43 @@
       <publishTime>09/22/2014 19:04:19</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Views/WidgetsVkCommunity/Configure.cshtml">
-      <publishTime>11/16/2014 22:43:19</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/Views/WidgetsVkCommunity/PublicInfo.cshtml">
-      <publishTime>11/25/2014 02:13:28</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.VkCommunity/web.config">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Content/sample-images/img1.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Content/sample-images/img2.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Content/sample-images/img3.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Content/zelectro-blog-last-posts.css">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Description.txt">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Nop.Plugin.Widgets.ZelectroBlogLastPosts.dll">
-      <publishTime>12/09/2014 01:08:28</publishTime>
+      <publishTime>12/26/2014 00:40:11</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Nop.Plugin.Widgets.ZelectroBlogLastPosts.dll.config">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Views/WidgetsZelectroBlogLastPosts/Configure.cshtml">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/Views/WidgetsZelectroBlogLastPosts/PublicInfo.cshtml">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Plugins/Widgets.ZelectroBlogLastPosts/web.config">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Scripts/admin.common.js">
       <publishTime>09/22/2014 19:02:44</publishTime>
@@ -6784,88 +6793,88 @@
       <publishTime>09/22/2014 19:02:59</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.multiselect.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.multiselect.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.notification.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.notification.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.numerictextbox.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.numerictextbox.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.pager.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.pager.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.panelbar.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.panelbar.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.popup.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.popup.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.progressbar.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.progressbar.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.reorderable.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.reorderable.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.resizable.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.resizable.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.router.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.router.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.agendaview.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.agendaview.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.dayview.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.dayview.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.monthview.min.js">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.monthview.min.js.map">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>09/22/2014 19:03:00</publishTime>
     </File>
     <File Include="Scripts/kendo/2014.1.318/kendo.scheduler.recurrence.min.js">
       <publishTime>09/22/2014 19:03:01</publishTime>
@@ -6967,10 +6976,10 @@
       <publishTime>09/22/2014 19:03:04</publishTime>
     </File>
     <File Include="Scripts/main.js">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Scripts/owl.carousel.js">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Scripts/public.accordion.js">
       <publishTime>09/22/2014 19:03:04</publishTime>
@@ -6991,19 +7000,19 @@
       <publishTime>09/22/2014 19:03:04</publishTime>
     </File>
     <File Include="Scripts/_references.js">
-      <publishTime>11/23/2014 16:15:23</publishTime>
+      <publishTime>12/26/2014 00:28:42</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/owl.carousel.css">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/19/2014 00:46:31</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/owl.theme.css">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/style - копия.css">
       <publishTime>11/25/2014 00:40:11</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/css/style.css">
-      <publishTime>09/12/2014 00:52:56</publishTime>
+      <publishTime>12/26/2014 00:32:26</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/ie6.css">
       <publishTime>09/22/2014 20:03:04</publishTime>
@@ -7114,67 +7123,67 @@
       <publishTime>09/22/2014 20:03:04</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/ajax_loader_large.gif">
-      <publishTime>11/24/2014 00:10:27</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/article.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/article2.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/article3.jpg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/cart_empty.png">
-      <publishTime>11/23/2014 16:04:40</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/category.jpeg">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/close.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/delete.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/discount.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/hot.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/ios.arrows.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/left-arrow.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/25/2014 23:12:47</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/logo.gif">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/new.png">
-      <publishTime>11/16/2014 22:43:20</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/product-large-1.jpeg">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/product-large-2.jpeg">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/product.jpeg">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/rating-empty.png">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/rating-full.png">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/right-arrow.png">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/25/2014 23:12:35</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/img/russia.png">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Content/responsive.css">
       <publishTime>09/22/2014 20:03:05</publishTime>
@@ -7192,106 +7201,112 @@
       <publishTime>09/22/2014 19:03:05</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/CategoryNavigation.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/CategoryTemplate.ProductsInGridOrLines.cshtml">
-      <publishTime>02/12/2014 00:53:17</publishTime>
+      <publishTime>12/13/2014 19:42:56</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/HomepageCategories.cshtml">
-      <publishTime>11/18/2014 22:41:42</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/Search.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/SearchBox.cshtml">
-      <publishTime>11/21/2014 00:16:56</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Catalog/TopMenu.cshtml">
-      <publishTime>11/24/2014 00:31:31</publishTime>
+      <publishTime>12/25/2014 16:58:50</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Checkout/OnePageCheckout.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Common/Footer.cshtml">
-      <publishTime>11/23/2014 22:01:46</publishTime>
+      <publishTime>12/25/2014 20:11:25</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Home/Index.cshtml">
-      <publishTime>09/12/2014 00:03:27</publishTime>
+      <publishTime>12/25/2014 17:07:22</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/HomepageBestSellers.cshtml">
-      <publishTime>09/12/2014 00:04:14</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/HomepageProducts.cshtml">
-      <publishTime>09/12/2014 00:04:01</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Product/Index.cshtml">
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/ProductReviews.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/ProductsAlsoPurchased.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/ProductTemplate.Simple.cshtml">
-      <publishTime>11/25/2014 23:46:01</publishTime>
+      <publishTime>12/23/2014 21:44:48</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/RelatedProducts.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
+    </File>
+    <File Include="Themes/DefaultClean/Views/Product/_AddToCart.cshtml">
+      <publishTime>12/23/2014 22:01:13</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/_ProductBox.cshtml">
       <publishTime>11/16/2014 22:43:21</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Product/_ProductDetailsPictures.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/Error.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/Head.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/Header.cshtml">
-      <publishTime>11/20/2014 23:35:48</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/LanguageAttributes.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_ColumnsOne.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_ColumnsThree.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_ColumnsTwo.cshtml">
-      <publishTime>09/12/2014 00:49:17</publishTime>
+      <publishTime>12/25/2014 23:51:39</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_CreateOrUpdateAddress.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_Notifications.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_Print.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_ProductBox.cshtml">
-      <publishTime>07/12/2014 01:42:28</publishTime>
+      <publishTime>12/25/2014 22:26:21</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_Root.cshtml">
-      <publishTime>01/01/0001 00:00:00</publishTime>
+      <publishTime>12/25/2014 16:38:39</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_Root.Head.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Shared/_RootPopup.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/ShoppingCart/Cart.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/ShoppingCart/OrderSummary.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/ShoppingCart/OrderTotals.cshtml">
-      <publishTime>11/16/2014 22:43:21</publishTime>
+      <publishTime>12/13/2014 19:42:57</publishTime>
     </File>
     <File Include="Themes/DefaultClean/Views/Web.config">
       <publishTime>09/22/2014 19:03:05</publishTime>
@@ -7678,7 +7693,7 @@
       <publishTime>09/22/2014 19:03:07</publishTime>
     </File>
     <File Include="Views/Product/_AddToCart.cshtml">
-      <publishTime>09/22/2014 19:03:07</publishTime>
+      <publishTime>12/22/2014 20:31:38</publishTime>
     </File>
     <File Include="Views/Product/_BackInStockSubscription.cshtml">
       <publishTime>09/22/2014 19:03:07</publishTime>
@@ -7837,7 +7852,7 @@
       <publishTime>09/22/2014 19:03:08</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/09/2014 01:09:25</publishTime>
+      <publishTime>12/26/2014 00:43:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

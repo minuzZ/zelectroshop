@@ -3,16 +3,18 @@
 @{
     Layout = "~/Views/Shared/_Root.Head.cshtml"; 
     var currentThemeName = EngineContext.Current.Resolve<IThemeContext>().WorkingThemeName;
-    var closeImg = "~/Themes/" + currentThemeName + "/Content/img/close.png";
 }
 @Html.Widget("body_start_html_tag_after")
 @Html.Partial("_Notifications")
-<div id="wrapper">
+<div class="wrapper">
     @Html.Action("JavaScriptDisabledWarning", "Common")
     <div class="master-wrapper-content">
         <script type="text/javascript">
             AjaxCart.init(false, '.menu .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
         </script>
+        <div class="container">
+            @Html.Action("HeaderLinks", "Common")
+        </div>
         @Html.Partial("Header")
         @Html.Widget("content_before")
         @*ajax loading window*@
@@ -27,19 +29,8 @@
         </div>
         @Html.Widget("content_after")
     </div>
-    @Html.Action("Footer", "Common")
+    <div class="page-buffer"></div>
 </div>
-<!-- /wrapper -->
-<div id="popup-wrapper">
-    <h1>Отправьте заявку</h1>
-    <img src="@closeImg" class="close" />
-    <div>
-        <input type="text" name="fio" placeholder="Имя" />
-    </div>
-    <div>
-        <input type="text" name="phone" placeholder="Телефон" />
-    </div>
-    <div class="button">Заказать звонок</div>
-</div> <!-- popup-wrapper -->
+@Html.Action("Footer", "Common")
 @Html.Action("EuCookieLaw", "Common")
 @Html.Widget("body_end_html_tag_before")

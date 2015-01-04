@@ -1,0 +1,47 @@
+﻿@model ProductDetailsModel.AddToCartModel
+@using Nop.Web.Models.Catalog;
+@using Nop.Core.Domain.Orders;
+
+<div class="qtyblock">
+    <input type='button' value='-' class='qtyminus button' />
+    @Html.TextBoxFor(model => model.EnteredQuantity, new { @class = "qty-input" })
+    <input type='button' value='+' class='qtyplus button' />
+</div>
+@if (Model.StockQuantity == 0)
+{
+    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button notinstock" value="@T("ShoppingCart.NotInStock")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+}
+else
+{
+    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button" value="@T("ShoppingCart.AddToCart")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+}
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#@Html.FieldIdFor(model => model.EnteredQuantity)").keydown(function(event) {
+            if (event.keyCode == 13) {
+                $("#add-to-cart-button-@Model.ProductId").click();
+                return false;
+            }
+        });
+        $('.qtyplus').click(function (e) {
+            e.preventDefault();
+            var fieldId = "@Html.FieldIdFor(model => model.EnteredQuantity)";
+            var currentVal = parseInt($('input[id=' + fieldId + ']').val());
+            if (!isNaN(currentVal)) {
+                $('input[id=' + fieldId + ']').val(currentVal + 1);
+            } else {
+                $('input[id=' + fieldId + ']').val(0);
+            }
+        });
+        $(".qtyminus").click(function (e) {
+            e.preventDefault();
+            var fieldId = "@Html.FieldIdFor(model => model.EnteredQuantity)";
+            var currentVal = parseInt($('input[id=' + fieldId + ']').val());
+            if (!isNaN(currentVal) && currentVal > 0) {
+                $('input[id=' + fieldId + ']').val(currentVal - 1);
+            } else {
+                $('input[id=' + fieldId + ']').val(0);
+            }
+        });
+    });
+</script>

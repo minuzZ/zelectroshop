@@ -1277,13 +1277,16 @@ namespace Nop.Web.Controllers
                         else
                         {
 
-                            //display notification message and update appropriate blocks
-                            var updatetopcartsectionhtml = string.Format(_localizationService.GetResource("ShoppingCart.HeaderQuantity"),
-                                 _workContext.CurrentCustomer.ShoppingCartItems
-                                 .Where(sci => sci.ShoppingCartType == ShoppingCartType.ShoppingCart)
-                                 .LimitPerStore(_storeContext.CurrentStore.Id)
-                                 .ToList()
-                                 .GetTotalProducts());
+
+                            int cartItemsCount = _workContext.CurrentCustomer.ShoppingCartItems
+                                .Where(sci => sci.ShoppingCartType == ShoppingCartType.ShoppingCart)
+                                .LimitPerStore(_storeContext.CurrentStore.Id)
+                                .ToList()
+                                .GetTotalProducts();
+                            int nn = cartItemsCount % 100;
+                            int n = nn % 10;
+                            string w = n > 4 || n == 0 || nn - n == 10 ? "товаров" : (n == 1 ? "товар" : "товара");
+                            string updatetopcartsectionhtml = String.Format("{0} {1}", cartItemsCount, w);
                             var updateflyoutcartsectionhtml = _shoppingCartSettings.MiniShoppingCartEnabled
                                 ? this.RenderPartialViewToString("FlyoutShoppingCart", PrepareMiniShoppingCartModel())
                                 : "";
@@ -1489,14 +1492,16 @@ namespace Nop.Web.Controllers
                         }
                         else
                         {
-
                             //display notification message and update appropriate blocks
-                            var updatetopcartsectionhtml = string.Format(_localizationService.GetResource("ShoppingCart.HeaderQuantity"),
-                                 _workContext.CurrentCustomer.ShoppingCartItems
+                            int cartItemsCount = _workContext.CurrentCustomer.ShoppingCartItems
                                  .Where(sci => sci.ShoppingCartType == ShoppingCartType.ShoppingCart)
                                  .LimitPerStore(_storeContext.CurrentStore.Id)
                                  .ToList()
-                                 .GetTotalProducts());
+                                 .GetTotalProducts();
+                            int nn = cartItemsCount % 100;
+                            int n = nn % 10;
+                            string w = n > 4 || n == 0 || nn - n == 10 ? "товаров" : (n == 1 ? "товар" : "товара");
+                            string updatetopcartsectionhtml = String.Format("{0} {1}", cartItemsCount, w);
                             var updateflyoutcartsectionhtml = _shoppingCartSettings.MiniShoppingCartEnabled
                                 ? this.RenderPartialViewToString("FlyoutShoppingCart", PrepareMiniShoppingCartModel())
                                 : "";

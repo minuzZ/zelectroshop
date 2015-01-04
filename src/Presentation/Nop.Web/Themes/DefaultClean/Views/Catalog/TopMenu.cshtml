@@ -15,19 +15,14 @@
     <li class="right" id="topcartlink">
         <a href="@Url.RouteUrl("ShoppingCart")">
             <img class="cart-img" alt="cart logo" src="@Url.Content(cartLogoPath)">
-            Моя корзина: <span class="cart-qty">@Model.ShoppingCartItems</span>
-            @if (Model.ShoppingCartItems > 4 || Model.ShoppingCartItems == 0)
-            {
-                <text>товаров</text>
-            }
-            else if (Model.ShoppingCartItems == 1)
-            {
-                <text>товар</text>
-            }
-            else
-            {
-                <text>товара</text>
-            }
+            Моя корзина: <span class="cart-qty">@Model.ShoppingCartItems
+                @{
+                    int nn = Model.ShoppingCartItems % 100;
+                    int n = nn % 10;
+                    string w = n > 4 || n == 0 || nn - n == 10 ? "товаров" : (n == 1 ? "товар" : "товара");
+                    <text>@w</text>
+                }
+            </span>
         </a>
     </li>
 </ul>

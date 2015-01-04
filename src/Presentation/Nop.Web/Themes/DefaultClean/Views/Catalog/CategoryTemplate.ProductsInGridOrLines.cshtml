@@ -33,7 +33,7 @@
             </ul>
         }
         @*sibcategories*@
-        @if (Model.SibCategories.Count > 0 && Model.CategoryBreadcrumb.Count > 2)
+        else if (Model.SibCategories.Count > 0 && Model.CategoryBreadcrumb.Count >= 2)
         {
             <ul class="subcategories">
                 <li><a href="@Url.RouteUrl("Category", new { SeName = Model.CategoryBreadcrumb[Model.CategoryBreadcrumb.Count-2].SeName })">Все</a></li>

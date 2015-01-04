@@ -1943,7 +1943,6 @@
     <Content Include="Themes\DefaultClean\Views\Catalog\CategoryNavigation.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Catalog\CategoryTemplate.ProductsInGridOrLines.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductTemplate.Simple.cshtml" />
-    <Content Include="Themes\DefaultClean\Views\Product\_ProductDetailsPictures.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductsAlsoPurchased.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\RelatedProducts.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Catalog\Search.cshtml" />
@@ -1952,6 +1951,8 @@
     <Content Include="Themes\DefaultClean\Views\ShoppingCart\OrderTotals.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Checkout\OnePageCheckout.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\ProductReviews.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Product\_AddToCart.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Common\HeaderLinks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />

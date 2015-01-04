@@ -15,7 +15,7 @@
     }
     else
     {
-        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity, });
+        addtocartlink = Url.RouteUrl("AddProductToCart-Catalog", new { productId = Model.Id, shoppingCartTypeId = shoppingCartTypeId, quantity = quantity });
     }
 }
 
@@ -23,10 +23,9 @@
     <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
         <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl" title="@Model.DefaultPictureModel.Title" />
         <div class="prod-box title">@Model.Name</div>
-        <div class="prod-box prod-descr">@Model.ShortDescription</div>
     </a>
     <div class="prod-box priceblock">
-        <input type="text" class="prod-box-priceblock-qty" value="1" /> x @Model.ProductPrice.Price
+        @Model.ProductPrice.Price
         @if (!Model.ProductPrice.DisableBuyButton)
         {
             if (Model.ProductPrice.StockQuantity == 0)
@@ -40,4 +39,7 @@
         }
 
     </div>
+    <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
+        <div class="prod-box prod-descr">@Model.ShortDescription</div>
+    </a>
 </div>
