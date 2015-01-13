@@ -632,7 +632,7 @@ namespace Nop.Web.Controllers
                 priceMin:minPriceConverted, 
                 priceMax:maxPriceConverted,
                 filteredSpecs: alreadyFilteredSpecOptionIds,
-                orderBy: (ProductSortingEnum)command.OrderBy,
+                orderBy: ProductSortingEnum.StockAvailabilityAndPosition,
                 pageIndex: command.PageNumber - 1,
                 pageSize: command.PageSize);
             model.Products = PrepareProductOverviewModels(products).ToList();

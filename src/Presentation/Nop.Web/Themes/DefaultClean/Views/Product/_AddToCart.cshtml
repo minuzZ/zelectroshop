@@ -2,19 +2,20 @@
 @using Nop.Web.Models.Catalog;
 @using Nop.Core.Domain.Orders;
 
-<div class="qtyblock">
-    <input type='button' value='-' class='qtyminus button' />
-    @Html.TextBoxFor(model => model.EnteredQuantity, new { @class = "qty-input" })
-    <input type='button' value='+' class='qtyplus button' />
-</div>
-@if (Model.StockQuantity == 0)
+@if (Model.StockQuantity > 0)
 {
-    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button notinstock" value="@T("ShoppingCart.NotInStock")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+    <div class="qtyblock">
+        <input type='button' value='-' class='qtyminus button' />
+        @Html.TextBoxFor(model => model.EnteredQuantity, new { @class = "qty-input" })
+        <input type='button' value='+' class='qtyplus button' />
+    </div>
+    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button" value="@T("ShoppingCart.AddToCart")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
 }
 else
 {
-    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button" value="@T("ShoppingCart.AddToCart")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button notinstock" value="@T("ShoppingCart.OutOfStock")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
 }
+
 <script type="text/javascript">
     $(document).ready(function () {
         $("#@Html.FieldIdFor(model => model.EnteredQuantity)").keydown(function(event) {

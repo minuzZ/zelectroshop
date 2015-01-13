@@ -29,5 +29,9 @@
         /// Product creation date
         /// </summary>
         CreatedOn = 15,
+        /// <summary>
+        /// First by position, then not in stock in the end
+        /// </summary>
+        StockAvailabilityAndPosition = 20,
     }
 }

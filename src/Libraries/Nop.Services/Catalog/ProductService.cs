@@ -890,24 +890,27 @@ namespace Nop.Services.Catalog
                         select pGroup.FirstOrDefault();
 
                 //sort products
-                if (orderBy == ProductSortingEnum.Position && categoryIds != null && categoryIds.Count > 0)
+                if ((orderBy == ProductSortingEnum.Position || orderBy == ProductSortingEnum.StockAvailabilityAndPosition) && 
+                    categoryIds != null && categoryIds.Count > 0)
                 {
                     //category position
                     var firstCategoryId = categoryIds[0];
                     query = query.OrderBy(p => p.ProductCategories.FirstOrDefault(pc => pc.CategoryId == firstCategoryId).DisplayOrder);
                 }
-                else if (orderBy == ProductSortingEnum.Position && manufacturerId > 0)
+                else if ((orderBy == ProductSortingEnum.Position || orderBy == ProductSortingEnum.StockAvailabilityAndPosition) 
+                    && manufacturerId > 0)
                 {
                     //manufacturer position
                     query = 
                         query.OrderBy(p => p.ProductManufacturers.FirstOrDefault(pm => pm.ManufacturerId == manufacturerId).DisplayOrder);
                 }
-                else if (orderBy == ProductSortingEnum.Position && parentGroupedProductId > 0)
+                else if ((orderBy == ProductSortingEnum.Position || orderBy == ProductSortingEnum.StockAvailabilityAndPosition) 
+                    && parentGroupedProductId > 0)
                 {
                     //parent grouped product specified (sort associated products)
                     query = query.OrderBy(p => p.DisplayOrder);
                 }
-                else if (orderBy == ProductSortingEnum.Position)
+                else if (orderBy == ProductSortingEnum.Position || orderBy == ProductSortingEnum.StockAvailabilityAndPosition)
                 {
                     //otherwise sort by name
                     query = query.OrderBy(p => p.Name);
@@ -941,6 +944,11 @@ namespace Nop.Services.Catalog
                 {
                     //actually this code is not reachable
                     query = query.OrderBy(p => p.Name);
+                }
+
+                if (orderBy == ProductSortingEnum.StockAvailabilityAndPosition)
+                {
+                    query = query.OrderByDescending(p => p.StockQuantity > 0);
                 }
 
                 var products = new PagedList<Product>(query, pageIndex, pageSize);

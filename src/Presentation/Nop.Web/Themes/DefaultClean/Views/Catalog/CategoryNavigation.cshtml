@@ -27,7 +27,7 @@
         @{
             if (BreadCrumbContainsCurrentCategoryId(category))
             {
-                <span>@category.Name</span>
+                <a class="current" href="@Url.RouteUrl("Category", new { SeName = category.SeName })">@category.Name</a>
             }
             else
             {

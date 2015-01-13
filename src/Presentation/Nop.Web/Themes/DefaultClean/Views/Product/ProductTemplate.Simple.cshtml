@@ -88,7 +88,7 @@
                             <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
                         }
                     </div> 
-                    <div class="feedback">(@Model.ProductReviewOverview.TotalReviews @T("Reviews.Overview.Reviews"))</div> | 
+                    <div class="feedback">@Model.ProductReviewOverview.TotalReviews @T("Reviews.Overview.Reviews")</div> | 
                     <a href="@Url.RouteUrl("ProductReviews", new {productId = Model.ProductReviewOverview.ProductId})">@T("Reviews.Overview.AddNew")</a>
                 </div>
             </div>
@@ -96,6 +96,8 @@
         <div class="description">
             @Html.Raw(Model.FullDescription)
         </div>
+        @if (Model.ProductReviews.Items.Count > 0)
+        {
         <div class="reviews">
             <h2>Отзывы о товаре</h2>
             <ul class="feedbacks">
@@ -123,6 +125,7 @@
                 }
             </ul>
         </div>
+        }
     </div>
 </div>
 @Html.Action("ProductsAlsoPurchased", "Product", new {productId = Model.Id})

@@ -7,6 +7,9 @@
     <div class="listbox">
         <ul class="list">
             @Html.Widget("account_navigation_before")
+            <li>
+                <a href="@Url.Action("Index", "Home")">На главную</a>
+                                                            </li>
             @if (!Model.HideInfo)
             {
                 <li><a href="@Url.RouteUrl("CustomerInfo")" class="@if (Model.SelectedTab == CustomerNavigationEnum.Info)
@@ -14,13 +17,14 @@
                                                                    else
                                                                    {<text>inactive</text>}">@T("Account.CustomerInfo")</a></li>
             }
+            @*
             @if (!Model.HideAddresses)
             {
                 <li><a href="@Url.RouteUrl("CustomerAddresses")" class="@if (Model.SelectedTab == CustomerNavigationEnum.Addresses)
                                                                         {<text>active</text>}
                                                                         else
                                                                         {<text>inactive</text>}">@T("Account.CustomerAddresses")</a></li>
-            }
+            }*@
             @if (!Model.HideOrders)
             { 
                 <li><a href="@Url.RouteUrl("CustomerOrders")" class="@if (Model.SelectedTab == CustomerNavigationEnum.Orders)
