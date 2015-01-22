@@ -1953,6 +1953,9 @@
     <Content Include="Themes\DefaultClean\Views\Product\ProductReviews.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Product\_AddToCart.cshtml" />
     <Content Include="Themes\DefaultClean\Views\Common\HeaderLinks.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Order\Details.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\Checkout\Completed.cshtml" />
+    <Content Include="Themes\DefaultClean\Views\ShoppingCart\_OrderReviewData.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />

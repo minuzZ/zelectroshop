@@ -7,7 +7,7 @@
     <div class="popular-products">
         <div class="container">
             <h2>@T("Products.AlsoPurchased")</h2>
-            <div id="popular-products-carousel" class="carousel owl-carousel">
+            <div id="alsopurchased-carousel" class="carousel owl-carousel">
                 @foreach (var item in Model)
                 {
                     @Html.Partial("_ProductBox", item)
@@ -16,3 +16,14 @@
         </div>
     </div> <!-- /popular-products -->
 }
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#alsopurchased-carousel").owlCarousel({
+
+            navigation: true,
+            navigationText: ['', '']
+
+        });
+    });
+</script>

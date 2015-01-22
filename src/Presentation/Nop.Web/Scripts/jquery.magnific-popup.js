@@ -1705,7 +1705,7 @@ $.magnificPopup.registerModule('gallery', {
 
 		tPrev: 'Previous (Left arrow key)',
 		tNext: 'Next (Right arrow key)',
-		tCounter: '%curr% из %total%'
+		tCounter: '%curr%/%total%'
 	},
 
 	proto: {

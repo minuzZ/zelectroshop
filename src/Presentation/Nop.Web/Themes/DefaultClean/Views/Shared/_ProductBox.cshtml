@@ -25,7 +25,10 @@
         <div class="prod-box title">@Model.Name</div>
     </a>
     <div class="prod-box priceblock">
-        @Model.ProductPrice.Price
+        @if (Model.ProductPrice.StockQuantity > 0)
+        {
+            @Model.ProductPrice.Price
+        }
         @if (!Model.ProductPrice.DisableBuyButton)
         {
             if (Model.ProductPrice.StockQuantity == 0)

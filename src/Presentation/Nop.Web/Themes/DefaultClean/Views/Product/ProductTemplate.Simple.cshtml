@@ -71,61 +71,22 @@
                 @Html.Partial("_ProductDetailsPictures", Model)
                 <div class="product-additional">
                     <div class="price">
-                        @Model.ProductPrice.Price
+                        @if (Model.AddToCart.StockQuantity > 0)
+                        { 
+                            @Model.ProductPrice.Price
+                        }
                     </div>
                     @{
                         var dataDictAddToCart = new ViewDataDictionary();
                         dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", Model.Id);
                         @Html.Partial("_AddToCart", Model.AddToCart, dataDictAddToCart)
                     }
-                    <div class="rating">
-                        @for (var i = 0; i < avgRating; i++)
-                        {
-                            <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
-                        }
-                        @for (var i = avgRating; i < 5; i++)
-                        {
-                            <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
-                        }
-                    </div> 
-                    <div class="feedback">@Model.ProductReviewOverview.TotalReviews @T("Reviews.Overview.Reviews")</div> | 
-                    <a href="@Url.RouteUrl("ProductReviews", new {productId = Model.ProductReviewOverview.ProductId})">@T("Reviews.Overview.AddNew")</a>
                 </div>
             </div>
         }
         <div class="description">
             @Html.Raw(Model.FullDescription)
         </div>
-        @if (Model.ProductReviews.Items.Count > 0)
-        {
-        <div class="reviews">
-            <h2>Отзывы о товаре</h2>
-            <ul class="feedbacks">
-                @foreach (var review in Model.ProductReviews.Items)
-                {
-                    <li>
-                        <div class="rating">
-                            @for (var i = 0; i < review.Rating; i++)
-                            {
-                                <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-full.png")">
-                            }
-                            @for (var i = review.Rating; i < 5; i++)
-                            {
-                                <img src="@Url.Content("~/Themes/" + currentThemeName + "/Content/img/rating-empty.png")">
-                            }
-                        </div>
-                        <div class="meta">
-                            от <span class="author">@(review.CustomerName)</span> | Дата: <span class="feedback-date">@review.WrittenOnStr</span>
-                        </div>
-                        <div class="text">
-                            @review.Title <br />
-                            @Html.Raw(Nop.Core.Html.HtmlHelper.FormatText(review.ReviewText, false, true, false, false, false, false))
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>
-        }
     </div>
 </div>
 @Html.Action("ProductsAlsoPurchased", "Product", new {productId = Model.Id})
