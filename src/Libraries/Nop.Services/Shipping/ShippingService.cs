@@ -631,6 +631,35 @@ namespace Nop.Services.Shipping
             return height;
         }
 
+        public virtual decimal GetShoppingCartItemPrice(ShoppingCartItem shoppingCartItem)
+        {
+            if (shoppingCartItem == null)
+                throw new ArgumentNullException("shoppingCartItem");
+
+            if (shoppingCartItem.Product == null)
+                return decimal.Zero;
+
+            var price = shoppingCartItem.Product.Price;
+            return price;
+        }
+
+        /// <summary>
+        /// Gets total price
+        /// </summary>
+        /// <param name="cart">Shipping cart items</param>
+        /// <returns>Total price</returns>
+        public virtual decimal GetTotalPrice(IList<ShoppingCartItem> cart)
+        {
+            Customer customer = cart.GetCustomer();
+
+            decimal totalPrice = decimal.Zero;
+            //shopping cart items
+            foreach (var shoppingCartItem in cart)
+                totalPrice += GetShoppingCartItemPrice(shoppingCartItem) * shoppingCartItem.Quantity;
+
+            return totalPrice;
+        }
+
 
         /// <summary>
         /// Create shipment packages (requests) from shopping cart

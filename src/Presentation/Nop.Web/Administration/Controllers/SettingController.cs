@@ -2190,6 +2190,15 @@ namespace Nop.Admin.Controllers
             model.PdfSettings.LogoPictureId = pdfSettings.LogoPictureId;
             model.PdfSettings.InvoiceFooterTextColumn1 = pdfSettings.InvoiceFooterTextColumn1;
             model.PdfSettings.InvoiceFooterTextColumn2 = pdfSettings.InvoiceFooterTextColumn2;
+            model.PdfSettings.IP = pdfSettings.IP;
+            model.PdfSettings.BIK = pdfSettings.BIK;
+            model.PdfSettings.Info = pdfSettings.Info;
+            model.PdfSettings.INN = pdfSettings.INN;
+            model.PdfSettings.InvoiceAddress = pdfSettings.InvoiceAddress;
+            model.PdfSettings.KS = pdfSettings.KS;
+            model.PdfSettings.OGRN = pdfSettings.OGRN;
+            model.PdfSettings.RS = pdfSettings.RS;
+            model.PdfSettings.SignImageFile = pdfSettings.SignImageFile;
             //override settings
             if (storeScope > 0)
             {
@@ -2197,6 +2206,15 @@ namespace Nop.Admin.Controllers
                 model.PdfSettings.LogoPictureId_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.LogoPictureId, storeScope);
                 model.PdfSettings.InvoiceFooterTextColumn1_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.InvoiceFooterTextColumn1, storeScope);
                 model.PdfSettings.InvoiceFooterTextColumn2_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.InvoiceFooterTextColumn2, storeScope);
+                model.PdfSettings.IP_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.IP, storeScope);
+                model.PdfSettings.BIK_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.BIK, storeScope);
+                model.PdfSettings.Info_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.Info, storeScope);
+                model.PdfSettings.INN_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.INN, storeScope);
+                model.PdfSettings.InvoiceAddress_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.InvoiceAddress, storeScope);
+                model.PdfSettings.KS_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.KS, storeScope);
+                model.PdfSettings.OGRN_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.OGRN, storeScope);
+                model.PdfSettings.RS_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.RS, storeScope);
+                model.PdfSettings.SignImageFile_OverrideForStore = _settingService.SettingExists(pdfSettings, x => x.SignImageFile, storeScope);
             }
 
             //localization
@@ -2428,6 +2446,16 @@ namespace Nop.Admin.Controllers
             pdfSettings.LogoPictureId = model.PdfSettings.LogoPictureId;
             pdfSettings.InvoiceFooterTextColumn1 = model.PdfSettings.InvoiceFooterTextColumn1;
             pdfSettings.InvoiceFooterTextColumn2 = model.PdfSettings.InvoiceFooterTextColumn2;
+            pdfSettings.IP = model.PdfSettings.IP;
+            pdfSettings.BIK = model.PdfSettings.BIK;
+            pdfSettings.Info = model.PdfSettings.Info;
+            pdfSettings.INN = model.PdfSettings.INN;
+            pdfSettings.InvoiceAddress = model.PdfSettings.InvoiceAddress;
+            pdfSettings.KS = model.PdfSettings.KS;
+            pdfSettings.OGRN = model.PdfSettings.OGRN;
+            pdfSettings.RS = model.PdfSettings.RS;
+            pdfSettings.SignImageFile = model.PdfSettings.SignImageFile;
+
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
              * and loaded from database after each update */
@@ -2451,6 +2479,51 @@ namespace Nop.Admin.Controllers
                 _settingService.SaveSetting(pdfSettings, x => x.InvoiceFooterTextColumn2, storeScope, false);
             else if (storeScope > 0)
                 _settingService.DeleteSetting(pdfSettings, x => x.InvoiceFooterTextColumn2, storeScope);
+
+            if (model.PdfSettings.IP_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.IP, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.IP, storeScope);
+
+            if (model.PdfSettings.BIK_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.BIK, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.BIK, storeScope);
+
+            if (model.PdfSettings.Info_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.Info, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.Info, storeScope);
+
+            if (model.PdfSettings.INN_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.INN, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.INN, storeScope);
+
+            if (model.PdfSettings.InvoiceAddress_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.InvoiceAddress, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.InvoiceAddress, storeScope);
+
+            if (model.PdfSettings.KS_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.KS, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.KS, storeScope);
+
+            if (model.PdfSettings.OGRN_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.OGRN, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.OGRN, storeScope);
+
+            if (model.PdfSettings.RS_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.RS, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.RS, storeScope);
+
+            if (model.PdfSettings.SignImageFile_OverrideForStore || storeScope == 0)
+                _settingService.SaveSetting(pdfSettings, x => x.SignImageFile, storeScope, false);
+            else if (storeScope > 0)
+                _settingService.DeleteSetting(pdfSettings, x => x.SignImageFile, storeScope);
 
             //now clear settings cache
             _settingService.ClearCache();

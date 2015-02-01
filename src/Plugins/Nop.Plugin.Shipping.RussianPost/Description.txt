@@ -1,0 +1,8 @@
+﻿Group: Shipping rate computation
+FriendlyName: Russian Post
+SystemName: Shipping.RussianPost
+Version: 1.00
+SupportedVersions: 3.50
+Author: minuzZ
+DisplayOrder: 1
+FileName: Nop.Plugin.Shipping.RussianPost.dll

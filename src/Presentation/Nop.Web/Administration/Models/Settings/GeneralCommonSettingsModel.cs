@@ -227,6 +227,41 @@ namespace Nop.Admin.Models.Settings
             public string InvoiceFooterTextColumn2 { get; set; }
             public bool InvoiceFooterTextColumn2_OverrideForStore { get; set; }
 
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfIP")]
+            public string IP { get; set; }
+            public bool IP_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfInvoiceAddress")]
+            public string InvoiceAddress { get; set; }
+            public bool InvoiceAddress_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfINN")]
+            public string INN { get; set; }
+            public bool INN_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfOGRN")]
+            public string OGRN { get; set; }
+            public bool OGRN_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfRS")]
+            public string RS { get; set; }
+            public bool RS_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfKS")]
+            public string KS { get; set; }
+            public bool KS_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfBIK")]
+            public string BIK { get; set; }
+            public bool BIK_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfInfo")]
+            public string Info { get; set; }
+            public bool Info_OverrideForStore { get; set; }
+
+            [NopResourceDisplayName("Admin.Configuration.Settings.GeneralCommon.PdfSignImageFile")]
+            public string SignImageFile { get; set; }
+            public bool SignImageFile_OverrideForStore { get; set; }
         }
 
         public partial class LocalizationSettingsModel : BaseNopModel

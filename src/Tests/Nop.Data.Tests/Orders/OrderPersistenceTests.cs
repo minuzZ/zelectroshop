@@ -75,7 +75,8 @@ namespace Nop.Data.Tests.Orders
                 PickUpInStore = true,
                 CustomValuesXml = "CustomValuesXml1",
                 Deleted = false,
-                CreatedOnUtc = new DateTime(2010, 01, 04)
+                CreatedOnUtc = new DateTime(2010, 01, 04),
+                NextInvoiceNum = 2
             };
 
             var fromDb = SaveAndLoadEntity(order);
@@ -133,6 +134,7 @@ namespace Nop.Data.Tests.Orders
             fromDb.CustomValuesXml.ShouldEqual("CustomValuesXml1");
             fromDb.Deleted.ShouldEqual(false);
             fromDb.CreatedOnUtc.ShouldEqual(new DateTime(2010, 01, 04));
+            fromDb.NextInvoiceNum.ShouldEqual(2);
         }
 
         [Test]

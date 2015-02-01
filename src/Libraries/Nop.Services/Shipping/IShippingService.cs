@@ -145,6 +145,13 @@ namespace Nop.Services.Shipping
         decimal GetShoppingCartItemWeight(ShoppingCartItem shoppingCartItem);
 
         /// <summary>
+        /// Gets shopping cart item price (of one item)
+        /// </summary>
+        /// <param name="shoppingCartItem">Shopping cart item</param>
+        /// <returns>Shopping cart item price</returns>
+        decimal GetShoppingCartItemPrice(ShoppingCartItem shoppingCartItem);
+
+        /// <summary>
         /// Gets shopping cart weight
         /// </summary>
         /// <param name="cart">Cart</param>
@@ -181,6 +188,13 @@ namespace Nop.Services.Shipping
         /// <param name="cart">Shipping cart items</param>
         /// <returns>Total height</returns>
         decimal GetTotalHeight(IList<ShoppingCartItem> cart);
+
+        /// <summary>
+        /// Gets total price
+        /// </summary>
+        /// <param name="cart">Shipping cart items</param>
+        /// <returns>Total price</returns>
+        decimal GetTotalPrice(IList<ShoppingCartItem> cart);
 
         /// <summary>
         /// Create shipment packages (requests) from shopping cart

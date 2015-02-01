@@ -1293,7 +1293,7 @@ table.products-cart td input {
 .order-summary-content .cart .cart-item-row .qty-input,.wishlist-content .cart .cart-item-row .qty-input{border:solid 1px #E3E3E3;font-size:12px;text-align:right;width:40px;}
 .order-summary-content .cart .cart-item-row td .td-title, .wishlist-content .cart .cart-item-row td .td-title{display:none;}
 .order-summary-content .cart .cart-item-row .edit-item a{color:#B80709;}
-.order-summary-content .cart-footer{width:100%;zoom:1;margin-bottom: 20px;}
+.order-summary-content .cart-footer{width:100%;zoom:1;}
 .order-summary-content .cart-footer:after{content:".";display:block;clear:both;height:0;font-size:0;line-height:0;visibility:hidden;}
 .order-summary-content .total-info{margin:0;font-size:12px;}
 .order-summary-content .total-info .selected-shipping-method{font-weight:normal;font-size:11px;}

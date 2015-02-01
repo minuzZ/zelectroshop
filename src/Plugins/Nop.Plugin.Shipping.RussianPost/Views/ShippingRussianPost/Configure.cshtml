@@ -1,0 +1,42 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Shipping.RussianPost.Models.RussianPostShippingModel
+@using Nop.Web.Framework;
+@using (Html.BeginForm())
+{
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.GatewayUrl):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.GatewayUrl)
+                @Html.ValidationMessageFor(model => model.GatewayUrl)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.Email):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Email)
+                @Html.ValidationMessageFor(model => model.Email)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.NopLabelFor(model => model.Site):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Site)
+                @Html.ValidationMessageFor(model => model.Site)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+            </td>
+        </tr>
+    </table>    
+}

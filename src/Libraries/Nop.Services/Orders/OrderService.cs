@@ -579,7 +579,31 @@ namespace Nop.Services.Orders
         }
 
         #endregion
-        
+
+        #region PDF Invoice ID
+
+        /// <summary>
+        /// Deletes an order
+        /// </summary>
+        /// <param name="order">The order</param>
+        /// <returns>Current invoice num</returns>
+        public virtual int UpdateNextInvoceNum(Order order)
+        {
+            if (order == null)
+                throw new ArgumentNullException("order");
+
+            if (order.NextInvoiceNum == null)
+            {
+                order.NextInvoiceNum = 1;
+            }
+            order.NextInvoiceNum++;
+            UpdateOrder(order);
+
+            return (int)(order.NextInvoiceNum - 1);
+        }
+
+        #endregion
+
         #endregion
     }
 }

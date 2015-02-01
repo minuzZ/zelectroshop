@@ -8,10 +8,10 @@
 <ul>
     @Html.Widget("header_menu_before")
 
-    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("aboutus") })">@T("AboutUs")</a></li>
     <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("shippinginfo") })">@T("ShippingReturns")</a></li>
-    <li><a href="http://zelectro.cc/">Статьи и обзоры</a></li>
+    <li><a href="@Url.RouteUrl("Topic", new {SeName = Html.GetTopicSeName("payment") })">@T("PaymentInfo")</a></li>
     <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a></li>
+    <li><a href="http://zelectro.cc/">Статьи и обзоры</a></li>
     <li class="right" id="topcartlink">
         <a href="@Url.RouteUrl("ShoppingCart")">
             <img class="cart-img" alt="cart logo" src="@Url.Content(cartLogoPath)">

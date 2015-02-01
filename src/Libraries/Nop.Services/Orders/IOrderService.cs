@@ -221,5 +221,16 @@ namespace Nop.Services.Orders
             int orderItemId, ReturnRequestStatus? rs, int pageIndex, int pageSize);
         
         #endregion
+
+        #region PDF Invoice ID
+
+        /// <summary>
+        /// Deletes an order
+        /// </summary>
+        /// <param name="order">The order</param>
+        /// <returns>Current invoice num</returns>
+        int UpdateNextInvoceNum(Order order);
+
+        #endregion
     }
 }

@@ -208,16 +208,6 @@
                 </div>
                 }
             }
-            <div class="cart-collaterals">
-                @if (Model.IsEditable)
-                {
-                    <div class="deals">
-                        @Html.Partial("_DiscountBox", Model.DiscountBox)
-                        @Html.Partial("_GiftCardBox", Model.GiftCardBox)
-                        @Html.Widget("order_summary_content_deals")
-                    </div>
-                }
-            </div>
             <div class="totals">
                 @Html.Action("OrderTotals", "ShoppingCart", new { isEditable = Model.IsEditable })
                 @if (Model.IsEditable)

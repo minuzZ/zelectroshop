@@ -981,7 +981,7 @@ namespace Nop.Services.ExportImport
                 xmlWriter.WriteElementString("VatNumber", null, order.VatNumber);
                 xmlWriter.WriteElementString("Deleted", null, order.Deleted.ToString());
                 xmlWriter.WriteElementString("CreatedOnUtc", null, order.CreatedOnUtc.ToString());
-
+                xmlWriter.WriteElementString("NextInvoiceNum", null, order.NextInvoiceNum.ToString());
                 //products
                 var orderItems = order.OrderItems;
                 if (orderItems.Count > 0)
@@ -1097,6 +1097,7 @@ namespace Nop.Services.ExportImport
                         "CustomValuesXml",
                         "VatNumber",
                         "CreatedOnUtc",
+                        "NextInvoiceNum",
                         //billing address
                         "BillingFirstName",
                         "BillingLastName",
@@ -1232,6 +1233,8 @@ namespace Nop.Services.ExportImport
                         worksheet.Cells[row, col].Value = order.CreatedOnUtc.ToOADate();
                         col++;
 
+                        worksheet.Cells[row, col].Value = order.NextInvoiceNum;
+                        col++;
                         
                         //billing address
                         worksheet.Cells[row, col].Value = order.BillingAddress != null ? order.BillingAddress.FirstName : "";

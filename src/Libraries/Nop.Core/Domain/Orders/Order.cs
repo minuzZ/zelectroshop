@@ -334,6 +334,11 @@ namespace Nop.Core.Domain.Orders
         /// </summary>
         public DateTime CreatedOnUtc { get; set; }
 
+        /// <summary>
+        ///Get or sets next invoice number for order
+        /// </summary>
+        public int? NextInvoiceNum { get; set; }
+
         #endregion
 
         #region Navigation properties
