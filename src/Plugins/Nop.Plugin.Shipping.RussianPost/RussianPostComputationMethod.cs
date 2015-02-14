@@ -28,11 +28,11 @@ namespace Nop.Plugin.Shipping.RussianPost
         private const int DEFAULT_WEIGHT = 500;
         private const string OUTPUT_FORMAT = "PLAIN";
         private const int ROUND = 10;
-        private const string PARCEL_NAME = "ЦеннаяБандероль";
+        private const string PARCEL_NAME = "ЦеннаяПосылка";
         private const string EMS_NAME = "EMS";
-        private const string RUSSIAN_POST = "Почта России. Ценная бандероль.";
-        private const string RP_DESCR = "Доставка осуществляется до ближайшего почтового отделения в любом населённом пункте России. Заявленное время ожидания для вашей посылки {0}.";
-        private const string EMS_DESCR = "Служба «EMS Почта России» работает быстрее и надёжнее обычной почты и доставляет до двери покупателя. Заявленное время ожидания для вашей посылки {0}.";
+        private const string RUSSIAN_POST = "Почта России. Ценная посылка.";
+        private const string RP_DESCR = "Доставка осуществляется до ближайшего почтового отделения в любом населённом пункте России. Заявленное время ожидания для вашей посылки {0} (дней).";
+        private const string EMS_DESCR = "Служба «EMS Почта России» работает быстрее и надёжнее обычной почты и доставляет до двери покупателя. Заявленное время ожидания для вашей посылки {0} (дней).";
         private const string DEF_NAME = "Упс :( Проблемы с расчетом стоимости отправки";
         private const string DEF_DESCR = "Но ничего страшного! Продолжайте оформлять заказ, а мы в свою очередь свяжемся с вами и уточним стоимость доставки.";
 
@@ -79,6 +79,19 @@ namespace Nop.Plugin.Shipping.RussianPost
             {
                 throw new Exception("Ошибка при расчете стоимости доставки");
             }
+
+            if (parcelVals[1].Contains('.'))
+            {
+                int i = parcelVals[1].IndexOf('.');
+                parcelVals[1] = parcelVals[1].Substring(0, i);
+            };
+
+            if (emsVals[1].Contains('.'))
+            {
+                int i = emsVals[1].IndexOf('.');
+                emsVals[1] = emsVals[1].Substring(0, i);
+            };
+
             var parcelOption = new ShippingOption()
             {
                 Name = RUSSIAN_POST,
@@ -88,7 +101,7 @@ namespace Nop.Plugin.Shipping.RussianPost
 
             var emsOption = new ShippingOption()
             {
-                Name = RUSSIAN_POST,
+                Name = EMS_NAME,
                 Rate = Convert.ToDecimal(emsVals[1]),
                 Description = String.Format(EMS_DESCR, emsVals[2])
             };
@@ -124,7 +137,6 @@ namespace Nop.Plugin.Shipping.RussianPost
                 request.Headers.Add(HttpRequestHeader.AcceptEncoding, "gzip,deflate");
                 request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
                 request.Method = "GET";
-
                 HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                 string str = response.ContentEncoding;
                 string rspContent;
@@ -132,7 +144,6 @@ namespace Nop.Plugin.Shipping.RussianPost
                 {
                     rspContent = reader.ReadToEnd();
                 }
-
                 return ParseResponse(rspContent);
             }
             catch
