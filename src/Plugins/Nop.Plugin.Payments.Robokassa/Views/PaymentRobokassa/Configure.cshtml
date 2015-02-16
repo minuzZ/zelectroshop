@@ -1,0 +1,78 @@
+﻿@{
+    Layout = "";
+}
+@model Nop.Plugin.Payments.Robokassa.Models.ConfigurationModel
+@using Nop.Web.Framework;
+
+@Html.Action("StoreScopeConfiguration", "Setting", new { area = "Admin" })
+@using (Html.BeginForm())
+{
+    <table class="adminContent">
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.Login_OverrideForStore, model => model.Login, Model.ActiveStoreScopeConfiguration)
+                Логин:
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Login)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.Password1_OverrideForStore, model => model.Password1, Model.ActiveStoreScopeConfiguration)
+                Пароль 1:
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Password1)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.Password2_OverrideForStore, model => model.Password2, Model.ActiveStoreScopeConfiguration)
+                Пароль 2:
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.Password2)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.PaymentDescription_OverrideForStore, model => model.PaymentDescription, Model.ActiveStoreScopeConfiguration)
+                Описание оплаты (клиент видит это описание на странице оплаты):
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.PaymentDescription)
+            </td>
+        </tr>
+        <tr>
+            <td class="adminTitle">
+                @Html.OverrideStoreCheckboxFor(model => model.ApiURL_OverrideForStore, model => model.ApiURL, Model.ActiveStoreScopeConfiguration)
+                Api URL:
+            </td>
+            <td class="adminData">
+                @Html.EditorFor(model => model.ApiURL)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" name="save" class="k-button" value="@T("Admin.Common.Save")" />
+            </td>
+        </tr>
+    </table>
+}
+
+<p>Ваши URL:</p>
+@{
+    string rootpath = "http://" + Model.HttpContext.Request.Url.Host;
+    if (Model.HttpContext.Request.Url.Port != 80)
+    {
+        rootpath += ":" + Model.HttpContext.Request.Url.Port.ToString() + "/";
+    }
+    string success = rootpath + "/Plugins/Robokassa/Success";
+    string fail = rootpath + "/Plugins/Robokassa/Fail";
+    string resulturl = rootpath + "/Plugins/Robokassa/Result";
+}
+
+<p>@resulturl</p>
+<p>@success</p>
+<p>@fail</p>

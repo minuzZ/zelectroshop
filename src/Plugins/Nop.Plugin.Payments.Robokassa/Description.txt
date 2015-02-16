@@ -1,0 +1,8 @@
+﻿Group: Payment methods
+FriendlyName: Robokassa
+SystemName: Payments.Robokassa
+Version: 1.00
+SupportedVersions: 3.50
+Author: nopcommerce
+DisplayOrder: 1
+FileName: Nop.Plugin.Payments.Robokassa.dll
