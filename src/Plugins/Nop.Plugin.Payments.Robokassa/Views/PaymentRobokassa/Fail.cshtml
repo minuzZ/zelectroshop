@@ -1,10 +1,15 @@
-﻿@model Nop.Plugin.Payments.Robokassa.Models.Fail
+﻿@using Nop.Web.Framework.UI
+@model Nop.Plugin.Payments.Robokassa.Models.Fail
 @{
     Layout = "~/Views/Shared/_ColumnsOne.cshtml";
     //title
     Html.AddTitleParts(T("PageTitle.Checkout").Text);
+    Html.AddCssFileParts("~/Plugins/Payments.Robokassa/Content/robokassa.css");
 }
 
-<p>Ваш заказ №@Model.orderid на сумму @Model.ordersum рублей <b>не</b> был оплачен.</p>
-<p>Вы можете оплатить его в любое время, нажав на кнопку <b>Оплатить</b> <a href="~/orderdetails/@Model.orderid">в деталях Вашего заказа</a>.</p>
+<div class="container robokassa">
+    <p>Ваш заказ №@Model.orderid на сумму @Model.ordersum рублей <b>не</b> был оплачен.</p>
+    <p>Вы можете оплатить его в любое время, нажав на кнопку <b>"Оплатить"</b> <a href="~/orderdetails/@Model.orderid">в деталях Вашего заказа</a>.</p>
+</div>
+
 

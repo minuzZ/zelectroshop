@@ -54,6 +54,7 @@ namespace Nop.Plugin.Payments.Robokassa.Controllers
 
             var model = new ConfigurationModel();
             model.HttpContext = _httpContext;
+            model.ApiURL = robokassaSettings.ApiURL;
             model.Login = robokassaSettings.Login;
             model.Password1 = robokassaSettings.Password1;
             model.Password2 = robokassaSettings.Password2;
