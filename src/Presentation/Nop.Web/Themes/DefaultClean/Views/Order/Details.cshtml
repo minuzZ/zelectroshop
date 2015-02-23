@@ -131,6 +131,18 @@
                                     <li class="shipping-method">
                                         @Model.ShippingMethod
                                     </li>
+                                    @if (!Model.PrintMode && Model.CanRePostProcessPayment)
+                                    {
+                                    <li class="repost">
+                                        @using (Html.BeginRouteForm("OrderDetails", FormMethod.Post))
+                                        {
+                                            <input type="submit" name="repost-payment" value="@T("Order.RetryPayment")" class="button-1 re-order-button" />
+                                            <p class="hint">
+                                                <em>@T("Order.RetryPayment.Hint")</em>
+                                            </p>
+                                        }
+                                    </li>
+                                    }
                                 </ul>
                             </td>
                         }

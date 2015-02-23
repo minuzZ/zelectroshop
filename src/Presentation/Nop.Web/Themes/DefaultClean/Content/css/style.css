@@ -3,10 +3,6 @@
 	RESET
 */
 
-/*33C370
-1f7a34 vs 87ad34 vs 74af1e
-*/
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -197,15 +193,16 @@ a, a:visited {
     float: left;
 }
 
-.owl-wrapper-outer {
+.owl-with-buttons .owl-wrapper-outer {
 	margin-left: 35px;
+    margin-right: 35px;
 }
 
-.owl-pagination {
+.owl-with-buttons .owl-pagination {
 	display: none;
 }
 
-.owl-prev {
+.owl-with-buttons .owl-prev {
 	position: absolute;
 	top: 100px;
 	left: 0px;
@@ -217,10 +214,10 @@ a, a:visited {
 	opacity: 1;
 }
 
-.owl-next {
+.owl-with-buttons .owl-next {
 	position: absolute;
 	top: 100px;
-	right: -15px;
+	right: 0px;
 	background-image: url('../img/right-arrow.png');
 	width: 30px;
 	height: 60px;
@@ -532,9 +529,19 @@ hr.faded {
 .seo-block {
     clear: both;
 	text-align: justify;
-	color: #888;
 	padding-top: 20px;
 	margin-bottom: 20px;
+    font-size: 0.9em;
+    font: 10pt Verdana, Arial, Helvetica, sans-serif;
+}
+
+.seo-block p {
+    color: #888;
+} 
+
+.seo-block h2 {
+    font-size:1.3em;
+    color: #888;
 }
 
 /*
@@ -980,15 +987,20 @@ table.products-cart td input {
 }
 
 #footer li:first-child {
-	margin-bottom: 16px;
+	margin-bottom: 14px;
 }
 
 #footer li {
-	margin-bottom: 12px;
+	margin-bottom: 9px;
 }
 
 #footer a, #footer a:visited {
 	color: #fff;
+}
+
+#footer h2 {
+    font-size: 16px;
+    font-weight: 600;
 }
 
 /*
@@ -1465,3 +1477,5 @@ table.products-cart td input {
 .product-review-helpfulness{font-size:11px;color:#333;clear:both;}
 .product-review-helpfulness .vote{color:#B80709;font-weight:700;text-decoration:none;}
 .product-review-helpfulness .vote:hover{cursor:pointer;text-decoration:none;}
+
+.footer-poweredby{padding:5px 0 5px 0;clear:both;font-size:10px;background-color:#33C370;text-align:center}
