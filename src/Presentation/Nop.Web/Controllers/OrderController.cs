@@ -488,6 +488,29 @@ namespace Nop.Web.Controllers
             return RedirectToRoute("ShoppingCart");
         }
 
+        public ActionResult GetPaymentLink(int orderId)
+        {
+            var order = _orderService.GetOrderById(orderId);
+
+            var postProcessPaymentRequest = new PostProcessPaymentRequest()
+            {
+                Order = order
+            };
+            _paymentService.PostProcessPayment(postProcessPaymentRequest);
+
+            if (_webHelper.IsRequestBeingRedirected || _webHelper.IsPostBeingDone)
+            {
+                //redirection or POST has been done in PostProcessPayment
+                return Content("Redirected");
+            }
+            else
+            {
+                //if no redirection has been done (to a third-party payment page)
+                //theoretically it's not possible
+                return Redirect("~/");
+            }
+        }
+
         [HttpPost, ActionName("Details")]
         [FormValueRequired("repost-payment")]
         public ActionResult RePostPayment(int orderId)

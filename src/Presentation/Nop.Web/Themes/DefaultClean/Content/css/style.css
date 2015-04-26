@@ -533,11 +533,8 @@ hr.faded {
 	margin-bottom: 20px;
     font-size: 0.9em;
     font: 10pt Verdana, Arial, Helvetica, sans-serif;
+    color: #888 !important;
 }
-
-.seo-block p {
-    color: #888;
-} 
 
 .seo-block h2 {
     font-size:1.3em;
@@ -1002,6 +999,8 @@ table.products-cart td input {
     font-size: 16px;
     font-weight: 600;
 }
+
+.footer-poweredby{padding:5px 0 5px 0;clear:both;font-size:10px;background-color:#33C370;text-align:center}
 
 /*
 	POPUP
@@ -1478,4 +1477,9 @@ table.products-cart td input {
 .product-review-helpfulness .vote{color:#B80709;font-weight:700;text-decoration:none;}
 .product-review-helpfulness .vote:hover{cursor:pointer;text-decoration:none;}
 
-.footer-poweredby{padding:5px 0 5px 0;clear:both;font-size:10px;background-color:#33C370;text-align:center}
+/* SITEMAP */
+.sitemap-page{margin-left:auto;margin-right:auto;width:100%;}
+.sitemap-page a{text-decoration:none;}
+.sitemap-page .entity{margin:5px 0 30px;}
+.sitemap-page ul{overflow:hidden;}
+.sitemap-page li{float:left;margin:3px 10px;width:150px;border-bottom:1px dotted #ADACAC;list-style:none;}

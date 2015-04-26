@@ -9,7 +9,7 @@
         @Html.TextBoxFor(model => model.EnteredQuantity, new { @class = "qty-input" })
         <input type='button' value='+' class='qtyplus button' />
     </div>
-    <input type="button" id="add-to-cart-button-@Model.ProductId" class="button" value="@T("ShoppingCart.AddToCart")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+    <input type="button" id="add-to-cart-button-@Model.ProductId" alt="Купить" class="button" value="@T("ShoppingCart.AddToCart")" data-productid="@Model.ProductId" onclick="AjaxCart.addproducttocart_details('@Url.RouteUrl("AddProductToCart-Details", new { productId = Model.ProductId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
 }
 else
 {

@@ -419,6 +419,11 @@ namespace Nop.Web.Infrastructure
                             new { controller = "Order", action = "ReOrder" },
                             new { orderId = @"\d+" },
                             new[] { "Nop.Web.Controllers" });
+            routes.MapLocalizedRoute("GetPaymentLink",
+                            "getpaymentlink/{orderId}",
+                            new { controller = "Order", action = "GetPaymentLink" },
+                            new { orderId = @"\d+" },
+                            new[] { "Nop.Web.Controllers" });
             routes.MapLocalizedRoute("GetOrderPdfInvoice",
                             "orderdetails/pdf/{orderId}",
                             new { controller = "Order", action = "GetPdfInvoice" },
